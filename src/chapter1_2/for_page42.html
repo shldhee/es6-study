@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>let Const</title>
+</head>
+<body>
+<ul>
+    <li>1~10</li>
+    <li>11~20</li>
+    <li>21~30</li>
+</ul>
+
+<script>
+    var nodes = document.querySelector("ul");
+    for( let k = 0; k < nodes.children.length; k++ ){
+        var el = nodes.children[k];
+        el.onclick = function(event){
+            event.target.style.backgroundColor = "yellow";
+            console.log(k);
+        }
+    }
+</script>
+</body>
+</html>
