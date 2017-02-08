@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   MDN : developer.mozila.org
+    an arrow function does not bind its own this, arguments, super or new.target.
+    these funtion expressions are best suited for non-method functions, and they cannot be used as constructors.
+
+ 
+   1. this와 setTimeout()함수 -> 일반선언 function: 함수로 선언시에 this : 생성시 자신만의 this에 bind되어있음  
+   2. arrow함수와 setTimeout()함수 -> arrow: 메서드로 선언시에 this : '' : 생성시 this에 bind되어있지 않음
+   -> 메서드로 사용시에도 this(자기자신)에 bind 되어 있지 않음()/원래 : 호출한 오브젝트를 가르킴
+   
+    <script>
+    var let=()=>(1+3);
+    
+    console.dir(let);
+    
+    var let2=function(){
+         return 1+3;
+    }
+    console.dir(let2); => prototype이 없음: new 생성불가
+    </script>
+          
+</body>
+</html>

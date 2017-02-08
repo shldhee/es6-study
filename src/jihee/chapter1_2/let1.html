@@ -7,17 +7,17 @@
 
 <body>
 ## var keyword 사용할것
-->  글로벌 오브젝트에 작성한 
+->  글로벌 오브젝트에서 보면 로컬 변수임
 <script>
 
   let one=100;
 
 function get() {
     one=300;
-    console.log("함수", one);
+    console.log("함수", one); //300
 }
 get();
-console.log("글로벌", one);
+console.log("글로벌", one); //300
 </script>
 </body>
 </html>
