@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //"use strict";
+    one = 100;
+    function get() {
+        one = 300;
+        console.log("함수 : ", one);
+    }
+    get();
+    console.log("글로벌 : ", one);
+
+    /*
+        var를 사용하지 않아 one은 글로벌 변수
+        use strict를 작성하면 에러 발생해서 주석처리함
+    */
+    </script>
+</body>
+</html>

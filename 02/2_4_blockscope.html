@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    "use strict";
+        let sports = "축구";
+        if (sports) { // sports = "축구" if(sports) 성립 블록 안의 코드 수행
+            let sports = "농구"; // 블록안에 let 변수로 sports 선언 후 "농구" 할당 if  문 앞에 같은 이름의 sports 변수가 있지만 블록 {} 기준으로 스코프가 다르므로 각 sports 변수에 할당
+            //이것이 바로 블록 스코프이다. "축구"가 "농구" 대체되지 않고 "축구"와 "농구"값이 유지된다.
+            console.log("블록 : ", sports);
+        }
+        console.log("글로벌 : ", sports);
+    </script>
+</body>
+</html>
