@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use script";
+
+        let Sports = function () {
+            this.count = 20;
+        }
+
+        Sports.prototype = {
+            plus: function() {
+                this.count += 1;
+            },
+            get: function() {
+                setTimeout(function() {
+                    console.log(this === window);
+                    console.log(this.plus);
+                }, 1000);
+            }
+        };
+
+        let newSports = new Sports();
+        newSports.get();
+
+        /*
+            newSports.get();에서 this가 newSports 인스턴스를 참조해야 되는데 window 오브젝트를 참조한다는 점이 문제다.
+            ES5에서 this가 newSports 인스턴스를 참조하지 못하므로 setTimeout()을 실행하기 전에 newSports 인스턴스를 변수에 할당하고,
+            setTimeout() 콜백 함수에서 변수의 인스턴스를 사용하는 형태를 취했습니다.
+        */
+
+    </script>
+</body>
+</html>

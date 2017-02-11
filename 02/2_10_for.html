@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1~10</li>
+        <li>11~20</li>
+        <li>21~30</li>
+    </ul>
+    <script>
+        "use strict";
+
+        var nodes = document.querySelector("ul");
+        for (let k = 0; k < nodes.children.length; k++) {
+            console.log(k);
+            var el = nodes.children[k];
+            el.onclick = function(event) {
+                event.target.style.backgroundColor = "yellow";
+                console.log(k);
+            }
+        };
+
+        /*
+            for() 문에서 let 변수는 반복할 때마다 스코프를 갖는 반면, var변수는 스코프를 갖지 않습니다.
+        */
+    </script>
+</body>
+</html>

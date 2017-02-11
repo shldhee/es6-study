@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        /*
+            const 변수는 선언만 할 수 없으며 초기값을 할당해야 된다.
+            표현식으로 작성할 수 있으며 표현식 평가 결과를 값으로 사용합니다.
+            const가 값을 변경할 수 없다는 점을 제외하면 let 키워드와 기능이 같으며 스코프도 같습니다.
+        */
+
+        /*const SPORTS = "축구";
+        try {
+            SPORTS = "농구";
+        } catch (e) {
+            console.log("const 재할당 불가");
+        }*/
+
+        const obj = {language: "한글"};
+        try {
+            console.log(obj);
+        } catch (e) {
+            console.log("const 재할당 불가");
+        }
+        obj.language = "영어";
+        console.log(obj.language);
+
+        /*
+            const 변수인 obj에 Object 오브젝트를 할당할 수는 없지만, obj의 프로퍼티에는 값을 할당할 수 있습니다.
+            따라서 obj.language = "영어"; 콘솔 출력
+        */
+
+    </script>
+</body>
+</html>

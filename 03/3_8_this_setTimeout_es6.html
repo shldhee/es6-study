@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        let Sports = function() {
+            this.count = 20;
+        };
+
+        Sports.prototype = {
+            plus: function() {
+                this.count += 1;
+            },
+            get: function() {
+                setTimeout(() => {
+                    this.plus();
+                    console.log(this.count);
+                }, 1000);
+            }
+        };
+
+        let newSports = new Sports();
+        newSports.get();
+
+        /*
+            화살표 함수 작성시 화살표 함수 블록에서 this가 newSports.get()형태의 newSports 인스턴스를 참조합    니다.
+        */
+    </script>
+</body>
+</html>

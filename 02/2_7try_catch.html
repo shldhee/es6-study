@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let sports = "축구";
+        try {
+            var sports = "농구";
+            console.log(sports);
+        } catch (e) { };
+        console.log(sports);
+
+        /*
+            try-catch문에서 try 블록 {} 기준으로 블록 스코프를 갖는다.
+            catch 블록은 스코프를 갖지 않고 try 블록 스코프에 속한다.
+        */
+    </script>
+</body>
+</html>
+38page에서
+try {
+    console.log(sports);
+} catch (e) {};
+밑에 글 중에서
+"try 블록에 let 변수 대신에 var 변수를 선언해도 결과가 같습니다." 라고 나오는데
+
+try {
+    let sports = "농구";
+    console.log(sports);
+} catch (e) { };
+
+try {
+    var sports = "농구";
+    console.log(sports);
+} catch (e) { };
+
+let을 var로 변경하면
+Uncaught SyntaxError: Identifier 'sports' has already been declared
+에러가 발생합니다.
+
+제가 이해를 못한건가요? 아니면 책이 틀린건가요?
