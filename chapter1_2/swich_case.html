@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        var count = 1;
+        let sports = "축구";
+        switch(count){ //블록 스코프
+            case 1 :
+                let sports = "농구";
+                console.log(sports);
+        };
+        console.log(sports);
+    </script>
+</body>
+</html>

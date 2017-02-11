@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        /*
+            let 특징
+            1. 함수 안에서는 함수 스코프
+            2. 블록 안에서는 블록 스코프
+            3. 같은 스코프에서 같은 이름의 변수 선언 불가
+            4. 호이스팅 불가
+        */
+        
+        //변수 선언
+        let a = "a", b = "b";
+        
+        //let a = "a";
+        //let b = "b";
+        
+        a = "1", b= "2"
+        
+        console.log("변수선언 " , a , "," , b);
+        
+        //블록 스코프
+        let sports = "축구";
+        if(sports){
+          let sports = "농구";
+            console.log("블록 : " , sports);
+        }
+        console.log("글로벌 : ", sports);
+        
+    </script>
+
+</body>
+</html>

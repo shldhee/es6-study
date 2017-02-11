@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        let sports = "축구";
+        try { //블록 스코프
+            let sports = "농구";
+            console.log(sports);
+        } catch(e){};
+        console.log(sports);
+    </script>
+</body>
+</html>

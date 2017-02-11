@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        //"use strict";
+        var one = 100; //글로벌 변수
+        function get(){
+            var one = 300; //글로벌 변수
+            console.log("함수 :" , one);
+        }
+        get();
+        //
+        console.log("글로벌 :" , one);
+    </script>
+</body>
+</html>

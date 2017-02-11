@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+    
+    <script>
+        //const 재할당 불가
+        const SPORTS = "축구";
+        try{
+            SPORTS = "농구";
+        } catch(e){
+            console.log("const 재할당 불가");
+        }
+        
+        //const object의 프로퍼티 값을 할당하여 재할당 가능
+        const obj = {language : "한글", a : "하이"};
+        try{
+            obj = {a : "하하하"};
+        } catch(e){
+            console.log("const 재할당 불가");
+        }
+        obj.language = "영어";
+        console.log(obj.language);
+        console.log(obj.a);
+    </script>
+</body>
+</html>
