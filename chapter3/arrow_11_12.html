@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        // es5 함수 표현식
+        var es5 = function(a, b){
+            return a + b
+        };
+        var sum = es5(1, 2);
+        console.log(sum);
+        
+        // es6 arrow 함수 표현식
+        let es6 = (a, b) => {
+            return a + b;
+        };
+        let resutl = es6(2, 3);
+        console.log(resutl);
+        
+        /*
+        1. arrow 함수는 무기명 함수이다.
+        2. arrow 함수를 호출하려면 함수 표현식과 같이 변수에 할당해야 한다.
+        */
+    </script>
+</body>
+</html>

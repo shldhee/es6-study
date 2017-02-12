@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        // 기본 함수
+        /*
+        let Sports = function(){ //인스턴스를 참조함
+            this.count = 20;
+        };
+        Sports.prototype = {
+            plus : function(){
+                this.count +=1;
+            },
+            get : function(){
+                setTimeout(function(){
+                    //여기서 this가 newsports가 아닌 window 오브젝트를 참조함
+                    console.log(this === window);
+                    console.log(this.plus);
+                    console.log(this);
+                }, 1000);
+            }
+        };
+        let newsports = new Sports();
+        newsports.get();
+        */
+        
+        // arrow 함수
+        let Sports = function(){ //인스턴스를 참조함
+            this.count = 20;
+        };
+        Sports.prototype = {
+            plus : function(){
+                this.count +=1;
+            },
+            get : function(){
+                setTimeout(() => {
+                    //여기서 this가 newsports가 아닌 window 오브젝트를 참조함
+                    console.log(this === window);
+                    console.log(this.plus);
+                    console.log(this.count);
+                    console.log(this);
+                }, 1000);
+            }
+        };
+        let newsports = new Sports();
+        newsports.get();
+    </script>
+</body>
+</html>

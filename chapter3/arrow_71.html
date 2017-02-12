@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        let Sports = function(){
+            this.conut = 20;
+        };
+        Sports.prototype = {
+            add: () => { // 프로퍼티에 arrow 함수를 연결하면 this가 인스턴스를 참조하지 못함
+                this.count += 1;
+            }
+        };
+        let newsports = new Sports();
+        newsports.add();
+        
+        console.log(newsports.conut);
+        console.log(window.conut);
+        console.log(this);
+    </script>
+</body>
+</html>
