@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        let Sports = function() {
+            this.count = 20;
+        };
+        Sports.prototype = {
+            add: () => {
+                this.count += 1;
+            }
+        };
+        let newSports = new Sports();
+
+        newSports.add();
+        console.log(newSports.count);
+        console.log(window.count);
+
+        //prototype에 화살표 함수를 연결하면 화살표 함수 블록에서 this가 인스턴스를 참조하지 못합니다.(window 오브젝트 참조) function 키워드 함수를 prototype에 연결해야 한다.
+        //add()는 화살표 함수. newSports.add()형태로 호출하므로 this.count에서 this가 newSports 인스턴스를 참조해야 되는데 window 오브젝트를 참고한다.
+        //따라서 window 오브젝트의 count에 1을 더한다.
+        //오브젝트에서 프로퍼티가 없으면 undefined 반환한다. 따라서 undefined + 1 이면 NaN(Not a Number)가 되어 count에 설정된다.
+    </script>
+</body>
+</html>

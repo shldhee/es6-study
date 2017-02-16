@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        //이터레이터 프로토콜은 오브젝트의 값을 차례대로 처리할 수 있는 방법을 제공합니다. 이 방법은 오브젝트에 있는 next()메서드로 구현 했으므로 오브젝트에 next()메서드가 있으면 이터레이터 프로토콜이 적용된 것이다.
+
+        /*
+            자바스크립트에서 {key: value} 형태의 Object 오브젝트는 작성한 순서대로 열거되는 것을 보장하지 않습니다. 이는 Object에 next()가 없다는것을 의미하기도 한다.
+            ES6에선 Object 오브젝트에 추가한 순서대로 key, value가 열거되는 Map 오브젝트를 제공한다.
+        */
+
+        // 이터러블 오브젝트는 반복 가능한 오브젝트를 나타내고
+        // 이터레이터 프로토콜은 이터러블 오브젝트의 값을 순서대로 처리하는 규약
+
+        let arrayObj = [1, 2];
+        let iteratorObj = arrayObj[Symbol.iterator]();
+        console.log("1:", typeof iteratorObj);
+
+        console.log('2:', iteratorObj.next());
+        console.log('3:', iteratorObj.next());
+        console.log('4:', iteratorObj.next());
+
+        /*
+            [Symbol.iterator]()로 반환받은 iteratorObj 타입은 object이다. object라는건 next()메서드가 포함되어 있다는 것을 의미합니다.
+
+            [1,2]로 생성한 Array 오브젝트는 이터러블 오브젝트이고, [Symbol.iterator]()를 호출하여 반환받은 오브젝트는 이터레이터 오브젝트이다.
+
+            코드 실행시 결과
+            value:1, done:false
+            value은 [1,2]의 값이고 done은 이터레이터가 종료되지 않은 것을 의미한다.
+            next()메서드는 이터러블 오브젝트의 값을 읽어 {value:1, done:false}형태로 반환합니다.
+
+            이와 같이 이터레이터 사용하여 이터러블 오브젝트의 값을 작성한 순서대로 하나씩 읽을 수 있습니다.
+            for()문으로 반복 처리하는 것과는 차이가 있습니다. 목적도 다르다.
+        */
+    </script>
+</body>
+</html>
