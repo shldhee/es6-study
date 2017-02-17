@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        //배열
+        let one = [11, 12];
+        let two = [21, 22];
+        let spreadObj = [51, ...one, 52, ...two];
+
+        /*
+            spread 연산자 = "..."과 점 3개를 작성하고 이어서 이터러블 오브젝트를 작성합니다.
+            [...[1,2]], function(...[1,2]) 로 작성할 수 있다.
+        */
+
+        //문자열
+        console.log('spreadObj', spreadObj);
+        console.log('spreadObj.length', spreadObj.length);
+
+        let spreadObjj = [..."music"];
+        console.log('spreadObjj', spreadObjj); //["m", "u", "s", "i", "c"]
+
+        //spread 연산자로 작성한 "music"이 전개 대상입니다. String 오브젝트가 이터러블 오브젝트이므로 문자열 사용이 가능하다.
+
+        //함수 파라미터
+        const values = [10,20,30];
+        get(...values);
+
+        function get(one, two, three) {
+            console.log('[one+two+three]', one+two+three);
+        };
+
+        //호출하는 함수의 파라미터 값으로 spread 연산자로 작성하면, 함수를 호출하기 전에 파라미터 값을 분리, 전개
+        //get()파라미터에 spread 연산자로 values를 작성 get() 함수를 호출하기 전에 [10, 20, 30]을 get(10, 20, 30) 형태로 전개
+        //one = 10, two = 20, three = 30 설정, 호출하는 함수의 파라미터 값이 분리된 형태를 spread 파라미터라고 한다.
+    </script>
+</body>
+</html>

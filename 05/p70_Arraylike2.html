@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        //Array-like의 프로퍼티 키 값은 0부터 1씩 증가하면서 순차적으로 작성해야 한다.
+
+        let values = {10: "ten", zoo: "동물원", 2: "two", length:3 }; //프로퍼티 값이 10, zoo, 2 이므로 완전한 Array-like 형태가 아니다.
+        for (var i = 0; i < values.length; i++) {
+            console.log('values[i]',values[i]);
+        }
+
+        /*
+            처음 values[0] 호출했는데 values 오브젝트 키 값이 0인 프로퍼티가 없으므로 undefined
+            values[1] 역시 undefined, values[2]는 "two"이므로 출력
+        */
+
+        /*
+            Array-like는
+            프로퍼티 키 값을 0부터 1씩 증가하면서 순차적으로 작성
+            length를 프로퍼티 키로 하여 전체 프로퍼티 수를 작성(프로퍼티 length 입력, values.length에서 가져옴)
+            둘중 하나라도 만족하지 않으면 Array-like가 아니다.
+        */
+    </script>
+</body>
+</html>
