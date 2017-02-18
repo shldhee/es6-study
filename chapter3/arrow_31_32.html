@@ -9,11 +9,13 @@
 <body>
 
     <script>
-        // object 오브젝트를 반환하려면 ()소괄호 안에 {key : val}를 작성해야함
+        // 화살표 다음의 {}을 함수 블록으로 인식하고,
+        // 함수 블록 안에 return 문을 작성 하지 않은 것으로 인식해서 undefined를 반환
         let sports = () => {};
         let result1 = sports();
         console.log(result1);
         
+        // 화살표 함수에서 object 오브젝트를 반환하려면 ()소괄호 안에 {key : val}를 작성해야함
         let get = param => ({sports : "축구"});
         let result2 = get();
         console.log(result2);

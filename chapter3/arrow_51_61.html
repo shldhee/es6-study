@@ -41,7 +41,7 @@
             },
             get : function(){
                 setTimeout(() => {
-                    //여기서 this가 newsports가 아닌 window 오브젝트를 참조함
+                    //여기서 this가 window가 아닌 newsports 오브젝트를 참조함
                     console.log(this === window);
                     console.log(this.plus);
                     console.log(this.count);

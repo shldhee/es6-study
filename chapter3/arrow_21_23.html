@@ -9,17 +9,17 @@
 <body>
 
     <script>
-        // {}함수 블록 생략 - => 뒤에 줄을 분리하면 에러남
+        // {}함수 블록 생략 - => 뒤에 줄을 분리하면 SyntaxError 에러남, 분리하지 않으면 정상 실행
         let total = (a, b) => a + b;
         let result1 = total(1, 2);
         console.log(result1);
         
-        // ()소괄호 생략 - 파라미터만 작성
+        // ()소괄호 생략 - 파라미터만 작성, 호출 받는 함수의 파라미터가 하나면 ()소괄호를 제외하고 value만 작성
         let get = val => val + 10;
         let result2 = get(20);
         console.log(result2);
         
-        //파라미터 생략 - ()소괄호만 작성
+        //파라미터 생략 - ()소괄호만 작성, 호출 받은 함수의 파라미터가 없으면 ()소괄호만 작성
         let noParam = () => 3 + 4;
         let result3 = noParam();
         console.log(result3);
