@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        //Array-like는 array는 아니지만 array처럼 쓸수 있는 object 오브젝트를 말함 - es6 공식 스펙임
+        
+        //{key : values} 형태로 index : values를 작성하고 수정, 삭제 할 수 있음
+        //마지막에는 배열의 앨리먼트 수를 나타내는 length 프로퍼티에 값을 지정해 줌
+        let values = {0: "제로", 1: "1", 2: "둘", length: 3}; // values["0"] 형태로 읽을수 있음
+        console.log(values["0"]);
+        console.log(values["2"]);
+        
+        //for-in문은 object 오브젝트를 전개할때 사용
+        //length 프로퍼티도 전개되므로 적절치 않음, length를 제외시키는 처리를 따로 해줘야함
+        for(var key in values){
+            console.log(key, ':', values[key]); 
+        }
+        
+        //for()문은 배열을 전개할때 사용
+        //length 프로퍼티가 전개되지 않음, object 오브젝트지만 배열처럼 사용 가능
+        for(var k = 0; k < values.length; k++){
+            console.log(values[k]);
+        }
+        
+        /*
+            Array-like는
+            프로퍼티 키 값을 0부터 1씩 증가하면서 순처적으로 작성하고,
+            length를 프로퍼티 키로 해서 전체 프로퍼티 수를 작성해야함
+            두가지 모두 만족해야 Array-like가 성립함
+        */
+        
+    </script>
+</body>
+</html>

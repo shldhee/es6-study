@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        //이터레이션(iteration)은 반복 처리를 나타내고이를 위한 이터러블 프로토콜과 이터레이터 프로토콜을 갖고 있음
+        
+        //이터러블 프로토콜은 오브젝트의 반복 처리 규약을 정의 (배열을 의미)
+        
+        //Array 오브젝트가 할당된 arrayObj에서 Symbol.iterator의 존재 여부 체크
+        /* 주의점 
+        체크 할때 arrayObj.propertyKey, arrayObj[propertyKey] 형태로 작성 해야하지만
+        Symbol은 arrayObj.Symbol.iterator 형태로 작성 할수 없고
+        arrayObj[Symbol.iterator]와 같이 [] 대괄호 안에 Symbol.iterator 작성해야함
+        */
+        let arrayObj = []; //Array 오브젝트에는 Symbol.iterator가 설정되어 있음
+        let result1 = arrayObj[Symbol.iterator];
+        console.log(result1);
+        
+        //Object 오브젝트에서 Symbol.iterator의 존재 여부 체크
+        let objectObj = {}; //Object 오브젝트에는 Symbol.iterator가 설정되어 있지 않음
+        let result2 = objectObj[Symbol.iterator];
+        console.log(result2);
+    </script>
+</body>
+</html>

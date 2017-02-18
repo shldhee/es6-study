@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        //이터레이터 프로토콜은 오브젝트의 값을 차례대로 처리하는 규약
+        //next() 메서드로 구현하고 next() 메서드가 있으면 이터레이터 프로토콜이 적용된 것임
+        
+        //es6에서는 Object 오브젝트에 추가한 순서대로 Key, vlaue가 열거되는 Map 오브젝트를 제공함
+        
+        //이터러블 오브젝트
+        let arrayObj = [1, 2];
+        
+        //이터레이터 오브젝트
+        //arrayObj의 Symbol.iterator()호출하면 이터레이터 오브젝트를 생성하여 반환
+        let iteratorObj = arrayObj[Symbol.iterator]();
+        
+        //반환 받은 iteratorObj 타입이 object이기 때문에 next()를 포함하고 있음
+        console.log("1 :", typeof iteratorObj); //object
+        
+        //next()를 사용해 호출
+        //arrayObj의 value값에 따라 value값이 표시되고 next()메서드로 이터레이터의 종료 여부 체크
+        console.log("2 :", iteratorObj.next()); // 2 : Object {value: 1, done: false} - 종료되지 않음
+        console.log("3 :", iteratorObj.next()); // 3 : Object {value: 2, done: false} - 종료되지 않음
+        console.log("4 :", iteratorObj.next()); // 4 : Object {value: undefined, done: true} - 종료됨
+    </script>
+</body>
+</html>
