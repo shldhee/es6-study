@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+#배열을 엘리먼트로 분할하고 ---> 분할된 엘리먼트를 변수에 할당 
+1. Array이 분할할당 []=[];
+2. Object분할할당{}={}; 같은 프로퍼티 이름으로 할당
+3. 파라미터 분할할당도 가능
+<script>
+"use strict;"
+let one, two;
+[one, two]=[1,2];
+    
+console.log(one, two); // 1 2
+
+//1. Array이 분할할당    
+let one_, two_, three_, four_, five_;
+const VALUES=[1,2,3];
+    
+[one_, two_, three_]=VALUES;
+console.log("A", one_, two_, three_, four_);
+
+[one_, two_, three_, four_, five_, six_]=[...VALUES,4,5,6,7,8];
+console.log("B", one_, two_, three_, four_, five_, six_); 
+/////////////////////six_에 6할당????????
+console.log(this.six_);
+
+six_=7;
+console.log(this.six_); //-> var 변수
+
+[one_, two_,[three_, four_]]=[1,2,[73,74]];
+console.log("C", one_,two_,three_,four_);
+
+let other;
+[one, ...other]=[1,2,3,4];
+console.log("D", ...other);
+console.log("D", other);
+    
+//Object분할 할당
+let {object1, object2}={object1:function(){console.log("function")}, object2:"ddd" };
+object1();
+
+let {nine, plus:{ten}}={nine:9, plus:{ten:10}};
+console.log(ten);
+
+let theOther;
+thisOther=[1,2,3];
+console.l+og([...thisOther]);
+console.log([thisOther]);
+</script>
+</body>
+</html>

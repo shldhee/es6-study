@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var keyword</title>
+</head>
+
+<body>
+
+let block scope 범위
+    1. global (let vs this) -> let 은 this로 접근 불가
+    
+let ==> block scope
+
+참고
+https://muckycode.blogspot.kr/2015/03/javascript-execution-context-scope.html
+
+참고
+http://stackoverflow.com/questions/39414692/a-javascript-let-global-variable-is-not-a-property-of-window-unlike-a-global
+
+TL;DR: Both are still global, but vars are stored in the window object, while lets are stored in a declarative environment that you can't see (just like you can't access a variable in a function scope from outside of the function). When declared globally, both statements are pretty much identical in use.
+
+<script>
+let sports="축구"; //window object에 선언되지 않음- declarative environment record. //this로는 접근 불가(초기화되지 않음 상태임)
+//var sports="기타"; //window object에 선언됨- object environment record //this로 접근가능(변수, 함수, 파라미터)
+if(sports){
+    let sports ="농구";
+    console.log("블록", this.sports); //undefined
+    console.log("블록", sports); // 농구
+}
+    
+    console.log("글로벌", sports); //축구
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    ## iterable object의 엘리먼트를 하나씩 분리하여 전개
+    1. 배열 => 배열전개
+    2. 문자열 => 문자열전개
+    3. 함수 파라미터 
+    4. rest파라미터
+    5. array-like
+</body>
+
+<script>
+//1. 배열전개    
+let one=[11,12];
+let two=[21,22];
+let spreadObj=[51,one,52,two];
+console.log(spreadObj);
+spreadObj=[51,...one,52,...two];
+console.log(spreadObj);
+
+    
+//2. 문자열전개
+let music="music";
+let musicSpread=[...music];
+console.log("springSpread: ", musicSpread);
+    
+//3. 함수파라미터
+const VALUES=[10,20,30];
+function get(){
+    console.log("arguments: ", arguments); //Object
+    console.log("arguments: ", arguments[Symbol.iterator]().next()); //10
+}
+get(...VALUES);
+    
+//4. rest파라미터-array
+    
+let restGet = (...rest) => {
+    console.log("rest: ",rest); //Array
+    console.log("rest: ",Array.isArray(rest)); //true
+}
+restGet(...VALUES);
+    
+//5. array-like
+let values={0:"zero", 1:"one", 2:"two",length:3};
+for(var key in values){
+    console.log("forin: ", values[key]);
+}    
+    
+for(var k=0; k<values.length; k++){
+    console.log("for: ", values[k]);
+}
+    
+values={"one":"zero", "two":"one", "three":"two",length:3};
+for(var key in values){
+    console.log("forin: ", values[key]);
+} 
+</script>
+</html>
