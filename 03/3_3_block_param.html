@@ -12,15 +12,21 @@
 
         //화살표 함수에서 함수 블록 {}을 사용하지 않고 한 줄에 작성할 수 있습니다.
 
-        let total = (one, two) => one + two; //return one + two와 같다 return 생략 return사용시 괄호 사용
+        /*return 생략*/
+        let total = (one, two) => one + two;
+        //return one + two와 같다 return 생략, return사용시 괄호 사용
         // => 앞에서 줄 분리시 에러, => 뒤에서 줄 분리시 정상 실행
         let result = total(1,2);
+
         console.log(result);
 
-        let get = value => value + 10; //호출받는 파라미터가 1개이면 () 생략 가능
+        /*파라미터 1개 () 생략*/
+        let get = value => value + 10;
+        //호출받는 파라미터가 1개이면 () 생략 가능
         let vresult = get(20);
         console.log(vresult);
 
+        /*파라미터 없을 시*/
         let noParam = () => 3 + 4;
         let noResult = noParam();
         console.log(noResult);
