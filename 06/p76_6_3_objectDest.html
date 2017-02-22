@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        // 변수 선언과 할당을 한 번에 하기
+        let {one, two} = {one: 1, nine: 9};
+        console.log(one, two); // 1 undefined
+        // 오른쪽 오브젝트의 nine이 왼쪽 오브젝트에 없다.
+
+
+
+        let three, four;
+        ({three, four} = { three: 3, four: 4 });
+        console.log(three, four); // 3 4
+    </script>
+</body>
+</html>

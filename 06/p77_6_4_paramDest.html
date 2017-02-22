@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        function total({one, plus: {two, five}}) {
+            console.log(one + two + five);
+        };
+        total({one:1 , plus: {two: 2, five: 5}}); //8
+
+        /*
+            호출하는 함수의 파라미터를 Object 오브젝트 형태로 작성
+            호출받는 함수의 파라미터를 Object 오브젝트의 분할 할당 형태로 작성
+        */
+
+    </script>
+</body>
+</html>

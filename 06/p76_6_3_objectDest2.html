@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        let five, six;
+        ({one: five, two: six} = {one: 10, two: 20});
+        console.log(five, six); // 10 20
+        /*
+            왼쪽, 오른쪽 오브젝트에 one 존재 one은 변수가 아닌 프로퍼티 키
+            프로퍼티 키 값이 같은 five 변수에 10, six 변수에 20 할당
+        */
+
+
+        let {nine, plus: {ten}} = {nine: 9, plus: {ten: 10}};
+        console.log(nine, ten); // 9 10
+
+
+    </script>
+</body>
+</html>

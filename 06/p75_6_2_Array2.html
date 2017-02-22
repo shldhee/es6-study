@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+
+        let one, two, three, four, other;
+        [one, , , four] = [1, 2, 3, 4];
+        console.log(one, four); // 1 4
+
+        //변수 이름 작성하지 않으면 해당하는 인덱스를 건너뛴다.
+
+        [one, ...other] = [1, 2, 3, 4];
+        console.log(one);
+        console.log(other); // [2, 3, 4]
+
+        let a, b, c, abc;
+        [...abc] = ["A","B","C",1,2,3,"A","B","C","D","E"];
+        console.log(a,b,c,abc);
+
+        // sppread 연산자로 other 변수를 저장
+    </script>
+</body>
+</html>

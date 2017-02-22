@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+
+        let one, two, three, four, five;
+        const values = [1, 2, 3];
+
+        [one, two, three] = values;
+        console.log("A:", one, two, three); // 1 2 3
+
+        [one, two] = values;
+        console.log("B:", one, two); // 1 2
+
+        [one, two, three, four] = values;
+        console.log("C:", one, two, three, four); // 1 2 3 undefined
+
+        [one, two, [three, four]] = [1, 2, [73, 74]];
+        console.log("D:", one, two, three ,four); // 1 2 73 74
+
+    </script>
+</body>
+</html>
