@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        /*
+            디스트럭처링 : es6 스펙, Destructuring assingment로 표기
+                1.오른쪽의 배열을 엘리먼트로 분할
+                2.엘리먼트 값을 왼쪽 변수에 할당하는 기능
+        */
+        
+        let one, two;
+        //배열의 1을 one변수에 할당함
+        [one, two] = [1, 2];
+        console.log(one);
+        console.log(two);
+        
+        console.log("예제 1")
+        let a, b, c, d, e;
+        const values = [1, 2, 3];
+        
+        [a, b, c] = values; //values가 배열이면 변수도 배열 형태여야 함
+        console.log("A :", a, b, c);
+        
+        [a, b] = values;
+        console.log("B :", a, b);
+        
+        [a, b, c, d] = values;
+        console.log("C :", a, b, c, d);
+        
+        [a, b, [c, d]] = [1, 2, [73, 74]];
+        console.log("D :", a, b, c, d);
+        
+        console.log("예제 2")
+        let f, g, h, i, other;
+        [f, , , i] = [1, 2, 3, 4];
+        console.log(f, i);
+        
+        [f, ...other] = [1, 2, 3, 4];
+        console.log(other);
+        
+        
+        
+        //test 코드
+        /*function test() {
+            return [12, 22, 32];
+        }
+        
+        var tmp = test();
+        var a1 = tmp[0];
+        var b1 = tmp[1];
+        
+        [a1, b1, c1] = test();
+        
+        console.log(a1);*/
+        
+
+    </script>
+</body>
+</html>

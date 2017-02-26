@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        /*
+            파라미터 분할 할당
+        */
+        //호출하는 함수의 파라미터에 Object 오브젝트를 작성할 수 있음
+        //함수 블록에서 직접 프로퍼티 이름을 사용함
+        function total({one, plus: {two, five}}){
+            console.log(one + two + five);
+        };
+        
+        total({one: 1, plus: {two: 2, five: 5}});
+        
+    </script>
+</body>
+</html>

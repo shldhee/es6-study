@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        /*
+            Object 분할 할당
+        */
+        console.log("예제 1");
+        //오른쪽이 object 오브젝트이면 왼쪽도 object 오브젝트 형태여야 함
+        let {one, two} = {one: 1, nine: 9};
+        //왼쪽 오브젝트 이름과 오른쪽 오브젝트 이름이 같아야 할당 됨
+        console.log(one, two);
+        
+        let three, four;
+        //사전에 선언된 변수를 사용하려면, 소괄호() 안에 할당 코드를 작성
+        ({three, four} = {three: 3, four: 4});
+        console.log(three, four);
+        
+        console.log("예제 2");
+        let five, six;
+        //여기서 one, two는 변수가 아니고 프로퍼티 키
+        ({one: five, two: six} = {one: 10, two: 20});
+        console.log(five, six);
+        
+        let {nine, plus: {ten}} = {nine: 9, plus: {ten: 10}};
+        console.log(nine, ten);
+        //console.log(nine, plus.ten);//레퍼런스에러
+        
+       
+        
+        /*
+        let nine = {};
+        let plus = {};
+        nine = 9;
+        plus['ten'] = 10;
+        
+        console.log(nine);
+        console.log(plus.ten);
+        */
+        
+    </script>
+</body>
+</html>
