@@ -23,6 +23,8 @@
     -own프로퍼티만 복사
     -prototype과 프로퍼티 디스크립터를 복사 하지 않음    
     
+5. setPrototypeOf() : [[prototype]]에 첨부
+
 <script>
 //1.-object에 같은 키 사용
     let samekey={one:1, one:2};
@@ -123,12 +125,25 @@ console.log(Object.assign(Symbol("ABC"), {one:1}));
     
 //getter함수는 복사하지 않고 return문->함수를 호출하여 복사 /return 이 없을시 undefined
 
-function Member(){
     
-}   
-;
-    console.dir(Member);
+//5.  setPrototypeOf();    
+let Proto=function(){};
+Proto.prototype.getCount=function(e){return "ss"+e+" "+this.coffee;};
+let protoObj=Object.setPrototypeOf({name:"dd"}, Proto.prototype); 
 
+Proto.prototype.getAll=function(){};
+    
+//console.log(protoObj);  console.log(Proto.prototype); 
+console.log(protoObj.__proto__===Proto.prototype); //얕은 복사 ->__proto__프로퍼티 사용..es6 권장하지 않는 스펙이라 함 ?? why??
+//////////////////////
+var cProto=new Proto();
+cProto.name="jihee";
+console.dir(cProto); //라케 하면 될까나? //protoObj와 구조는 같음
+
+let protoObj2=Object.setPrototypeOf({coffee:"ame"}, Proto);
+console.dir(protoObj2);
+//protoObj2.getAll(); //프로토타입 체이닝 안됨
+console.log(protoObj2.prototype.getCount.call(protoObj2,"1")); //ss1 ame 
 </script>
 </body>
     </htsetObj.setValue=3setObj.value;;ml>
