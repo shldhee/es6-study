@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+    
+    <script>
+        /*
+            오퍼레이션
+            프로퍼티 이름 조합
+        */
+        console.log("예제 1");
+        //문자열 조합 : 문자열을 조합하여 오브젝트의 프로퍼티 키로 사용할수 있음
+        let item2 = {
+          ["one" + "two"] : 12 //== onetwo : 12
+        };
+        console.log(item2.onetwo);
+        
+        console.log("예제 2");
+        //변수 값과 문자열 조합 : 변수 값과 문자열을 조합하여 오브젝트의 프로퍼티 키로 사용할수 있음
+        let item = "tennis";
+        let sports = {
+            [item] : 1,
+            [item + "Game"] : "윔블던",
+            [item + "Method"](){
+                return this[item];
+            }
+        };
+        console.log(sports.tennis);
+        console.log(sports.tennisGame);
+        console.log(sports.tennisMethod());
+        
+        console.log("예제 3");
+        //디스트럭처링과 프로퍼티 이름 조합 : 프로퍼티 이름을 조합하고 조합한 이름을 디스트럭처링으로 값을 할당할수 있음
+        let one = "sports";
+        let {[one] : value} = {sports: "농구"}; //one에 sports가 할당되어 있으므로 동일
+        
+        console.log(value);
+        
+    </script>
+</body>
+</html>

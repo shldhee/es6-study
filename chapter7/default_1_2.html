@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+    <script>
+        //Default Value
+        console.log("예제 1");
+        let [one, two, five = 5] = [1, 2];
+        console.log(five);
+        
+        [one, two, five = 5] = [1, 2, 77];
+        console.log(five);
+        
+        let {six, seven = 7} = {six : 6};
+        console.log(six, seven);
+        
+
+        console.log("예제 2");
+        //Default 값은 왼쪽에서 오른쪽으로 적용됨
+        let [one1, two1 = one1 + 1, five1 = two1 + 3] = [1];
+        console.log(one1, two1, five1);
+    </script>
+</body>
+</html>

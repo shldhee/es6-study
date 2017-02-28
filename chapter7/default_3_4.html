@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        console.log("예제 1");
+        //호출받는 함수의 파라미터에 디폴드 값을 작성하지 않으면 undefined가 설정됨
+        let plus = (one, two = 2) => one + two;
+        console.log(plus(1));
+        console.log(plus(1, undefined));
+        console.log(plus(1, 70));
+        
+        console.log("예제 2");
+        //함수의 파라미터에 디스트럭처링과 디폴트 값을 작성 할수 있음
+        let getTotal = ([one1, two1] = [10, 20]) => one1 + two1;
+        console.log(getTotal());
+        //함수의 파라미터에 디스트럭처링과 디폴트 값을 오프젝트로 작성 할수 있음
+        let getValue = ({two2: value} = {two2: 20}) => value;
+        console.log(getValue());
+    </script>
+
+</body>
+</html>
