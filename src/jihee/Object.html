@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1. 오퍼레이션
+    -object에 같은 키 사용시(es3는 추가/strict mode es5 error / es6 나중 프로퍼티 값으로 대체)
+    -변수 이름으로 값 설정
+    -object에 function작성
+
+2. getter, setter
+    -es5보다 직관적으로 작성 가능
+    
+3. Object.is() -값과 값타입 비교
+    - === 와 비슷하다 일부 차이 있음(+0,-0(is:false반환)/ NaN, NaN(is:true반환))    
+
+4. assign()
+    -오프젝트 프로퍼티 복사
+    -param1=Boolean, Number, String, Symbol 지정시 값 타입의 오브젝트 생성 사용(null, undefined는 불가)
+    -param2=열거 가능한 오브젝트 여야 함
+    -own프로퍼티만 복사
+    -prototype과 프로퍼티 디스크립터를 복사 하지 않음    
+    
+<script>
+//1.-object에 같은 키 사용
+    let samekey={one:1, one:2};
+    console.log(samekey);//one:2
+
+//1.-변수이름으로 설정
+    let one1=1, two2=2;
+    let values={one1, two2}; //------------------------> 좋다!!!!
+    console.log(values);
+
+//1.-Object에 function
+    var obj={
+        addNum : 123,
+        getTotal(){
+                return (param)=>{
+                    return param+this.addNum
+                };
+            }
+        
+       
+    };
+    console.log(obj.getTotal()(123));
+
+    Object.defineProperty(obj, "book",{
+        value:13
+        ,enumerable:false
+    });
+    
+    for(var key in obj){
+        console.log(key);  //for in 문 -> object 대상
+    }
+    
+    console.log(obj); //흑백처리
+    
+    
+    
+//2- getter
+    var getObj={
+        value:123,
+        get getValue(){
+            //return this.value;
+            return 3;
+        }
+    }
+    //console.log(getObj.getValue());//getObj.getValue is not a function -> type error
+    console.log(getObj.value);//123
+    
+//2. -setter
+    var setObj={
+        set setValue(_value){
+            this.value=_value;
+        }
+    }
+    
+    var setObj2={
+        setValue2(_value){
+            this.value=_value;
+        }
+    }
+    setObj.setValue=3;
+    console.log(setObj.value); //3
+    
+    
+    setObj2.setValue=3;
+    console.log(setObj2.value); //undefined  //setValue property 추가됨
+    
+    
+    //Quiz!!
+    let quiz={
+        count:2,
+        quiz(){
+            var count=3;
+            return {
+                thisCase1:()=>{return this.count;},  
+                thisCase2:()=>{return count;},
+                thisCase3:function(){return this.count;},
+                thisCase4:function(){return count;}
+            }
+        }
+    }
+   
+//4. assign(_param1, _param2)
+//_param2=열거 가능한 오브젝트 여야 함
+console.log(Object.assign("ABC", {one:1}));
+console.log(Object.assign(Symbol("ABC"), {one:1}));
+
+//복사한 값과 주소값이 연동되지 않음(두번재 파라미터) but!! 첫번째 파라미터와는 연동
+    let sports={
+        event:"soccer",
+        player:11
+    };
+    
+    let dup=Object.assign({}, sports);
+    console.log(dup.player);
+    
+    dup.player=33;
+    console.log(sports.player);
+    
+//getter함수는 복사하지 않고 return문->함수를 호출하여 복사 /return 이 없을시 undefined
+
+function Member(){
+    
+}   
+;
+    console.dir(Member);
+
+</script>
+</body>
+    </htsetObj.setValue=3setObj.value;;ml>
