@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        console.log("예제 1");
+        //for-of, for-in 차이점
+        let values = [10, 20, 30]; //values는 배열 오프젝트, Array.prototype에 첨부
+        Array.prototype.music = function(){ //좋은 예는 아님, values.music() 형태로 호출 가능
+            return "음악";
+        };
+        Object.prototype.sports = function(){ //values.sports() 형태로 호출 가능
+            return "스포츠";
+        };
+        for (var key in values){
+            console.log(key, values[key]);
+        }
+        console.log("////////for-of/////////");
+        for (var value of values){
+            console.log(value);
+        }
+        
+        console.log("예제 2");
+        //for-of로 오브젝트 열거
+        let sports2 = {
+            s : ": 축구",
+            b : ": 야구"
+        };
+        let keyList = Object.keys(sports2); //파라미터 sports2의 오브젝트에서 프로퍼티 키를 배열로 반환
+        for (var key of keyList){ //sports2[key] 형태로 프로퍼티 값을 구할 수 있음
+            console.log(key, sports2[key]);
+        }
+    </script>
+</body>
+</html>

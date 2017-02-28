@@ -9,6 +9,7 @@
 <body>
 
     <script>
+        //디폴트 파라미터
         console.log("예제 1");
         //호출받는 함수의 파라미터에 디폴드 값을 작성하지 않으면 undefined가 설정됨
         let plus = (one, two = 2) => one + two;
@@ -16,6 +17,7 @@
         console.log(plus(1, undefined));
         console.log(plus(1, 70));
         
+        //파라미터 디스트럭처링
         console.log("예제 2");
         //함수의 파라미터에 디스트럭처링과 디폴트 값을 작성 할수 있음
         let getTotal = ([one1, two1] = [10, 20]) => one1 + two1;

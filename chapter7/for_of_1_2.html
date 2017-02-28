@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        /*
+            for-of 문은 이터러블 오브젝트를 반복하여 처리함
+        */
+        console.log("예제 1");
+        //배열 반복
+        for (var value of [10, 20, 30]){ 
+            //value는 값이 변할 수 있는 변수, 배열은 이터러블 오브젝트
+            //변수 값을 변하지 않게 하려면 const 변수로 선언
+            console.log(value);
+        }
+        
+        console.log("예제 2");
+        //문자열 반복
+        for (var value2 of "ABC"){
+            console.log(value2);
+        }
+    </script>
+</body>
+</html>

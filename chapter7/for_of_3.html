@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+    <ul>
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+    </ul>
+
+    <script>
+        //NodeList 반복
+        let nodes = document.querySelectorAll("li");
+        for (var node of nodes){
+            console.log(node.textContent);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+    <script>
+        //for-of 디스트럭처링
+        let values = [
+            {item: "선물1", amount: {apple: 10, candy: 20}},
+            {item: "선물2", amount: {apple: 40, candy: 30}}
+        ];
+        for (var {item: one, amount: {apple: two, candy: five}} of values){
+            console.log(one, two, five);
+        }
+    </script>
+</body>
+</html>
