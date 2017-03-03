@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        let [one, two, five = 5] = [1, 2];
+        console.log(five); // 5
+
+        [one, two, five = 5] = [1, 2, 77];
+        console.log(five); // 77
+
+        let {six, seven = 7} = {six: 6};
+        console.log(six, seven); //6 7
+
+        //디폴트 값(default value)은 let 변수를 선언하면서 값이 설정되지 않았을 때 할당될 값을 작성해 두는 형태
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        //for-in 문의 대상은 Object 오브젝트이며 열거 가능한 프로퍼티가 대상 죽, 프로퍼티의 enumerable 속성 값이 false이면 반복에서 제외
+        //for-of 문의 대상은 이터러블 오브젝트이며 prototype에 연결된 프로퍼티는 대상이 아닙니다.
+
+        let values = [10, 20, 30];
+        Array.prototype.music = function () {
+            return "음악"
+        };
+        Object.prototype.sports = function() {
+            return "스포츠"
+        };
+        for (var key in values) {
+            console.log(key, values[key]);
+        };
+        console.log("<<<for-of>>>");
+        for (var value of values) {
+            console.log(value);
+        }
+        /*
+            values는 Array 오브젝트이므로 Array.prototype에 연결된 프로퍼티가 values.__proto__에 첨부
+            빌트인 오브젝트(Array 오브젝트)의 prototype에 메서드를 추가하는 것은 좋은 모습이 아니다.
+            music 메서드를 추가하면 values.__proto__와 Array.prototype이 연동되므로 values.music() 형태로 호출 가능
+
+            Object.protype에 sports를 메서드를 추가하면, values.__proto__.__proto__(Array.prototype.__proto__)
+            와 Object.prototype이 연동되므로 values.sports()로 호출가능
+
+            for-in문은 개발자 코드로 추가한 메서드는 열거되고 빌트인으로 설정된 메서드는 열거되지 않는다.
+        */
+        </script>
+
+</body>
+</html>

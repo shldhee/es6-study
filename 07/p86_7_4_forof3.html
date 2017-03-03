@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1번째</li>
+        <li>2번째</li>
+        <li>3번째</li>
+    </ul>
+    <script type="text/javascript">
+        'use strict';
+        let nodes = document.querySelectorAll("li");
+        for (var node of nodes) {
+            console.log(node.textContent);
+        }
+
+        //document.querySelectorAll()과 같은 DOM 메서드를 실행하면 반환된 NodeList를 반복할 수 있다.
+
+        //textContent innerText, innerHtml 차이
+
+    </script>
+</body>
+</html>

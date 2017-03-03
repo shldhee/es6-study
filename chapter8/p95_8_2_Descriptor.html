@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        var obj = {};
+        Object.defineProperty(obj, "book", {
+            get: function() {
+                return "책";
+            }
+        });
+        console.log(obj.book);
+
+        var ojbs = {};
+        Object.defineProperty(ojbs, "item", {
+            set: function(param) {
+                this.sports = param;
+            }
+        });
+
+        ojbs.item = "야구";
+        console.log(ojbs.sports);
+
+
+    </script>
+</body>
+</html>

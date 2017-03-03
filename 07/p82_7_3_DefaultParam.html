@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        let plus = (one, two = 2) => one + two; // 호출하는 함수에서 파라미터 값을 넘겨주지 않거나 undefined를 넘겨주면 디폴트 값이 적용된다.
+        console.log(plus()); //NaN
+        console.log(plus(1,undefined)); //3
+        console.log(plus(1,3)); //4
+        console.log(plus(1)); //3
+
+        let getTotal = ([one, two] = [10, 20]) => one + two;
+        console.log(getTotal()); //30
+        console.log(getTotal([1,2])); //3
+
+        let getValue = ({two: value} = {two: 20}) => value;
+        console.log(getValue()); //20
+        console.log(getValue({two:5})); //5
+
+        //함수의 파라미터에 디스트럭처링과 디폴트 값을 오브젝트로 작성한 형태입니다.
+    </script>
+</body>
+</html>

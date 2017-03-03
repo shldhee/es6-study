@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let item = "tennis";
+        let sports = {
+            [item]: 1, // ["tennis"]
+            [item + "Game"]: "윔블던", //["tennisGame"]
+            [item + "Method"](){ //["tennisMethod"]
+                return this[item];
+            }
+        };
+
+        console.log(sports.tennis); //1
+        console.log(sports.tennisGame); // 윔블던
+        console.log(sports.tennisMethod()); // 1
+
+    </script>
+</body>
+</html>

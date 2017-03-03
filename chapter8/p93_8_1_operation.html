@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        let sameKey = {one:1, one:5};
+        console.log(sameKey); //Object 5
+
+        let two = 2, three = 3;
+        let values = {two, three};
+        console.log(values); //Object {two:2, three:3}
+
+        /* ES5
+        let obj = {
+            getTotal : function(param) {
+                return param + 123;
+            }
+        };
+        */
+
+        //ES6
+        let obj = {
+            getTotal(param) {
+                return param + 123;
+            }
+        };
+
+        console.log(obj.getTotal(400));
+
+
+    </script>
+</body>
+</html>
