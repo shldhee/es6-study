@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+
+        let Sports = function () {};
+        Sports.prototype.getCount = function() {
+            return 123;
+        };
+
+        let protoObj = Object.setPrototypeOf({}, Sports.prototype);
+        console.log(protoObj.getCount());
+        console.dir(protoObj);
+
+        console.log("*****exp*****");
+
+        let Sports2 = function() {};
+        Sports2.prototype.getCount = function() {
+            return 456;
+        };
+        let fnObj = Object.setPrototypeOf({}, Sports2);
+        console.dir(fnObj);
+        console.log(fnObj.getCount);
+        console.log(fnObj.prototype.getCount.call(Sports2));
+
+    </script>
+</body>
+</html>

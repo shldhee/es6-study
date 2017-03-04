@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        let oneObj = {one: 1}, twoObj = {two: 2};
+        let mergeObj = Object.assign(oneObj, twoObj);
+
+        console.log(Object.is(oneObj, mergeObj)); //t
+
+        mergeObj.one = 456;
+        console.log(Object.is(oneObj, mergeObj)); //f
+
+        //mergeObj, oneObj 연동
+        //oneObj, twoObj 연동되지 않는다.
+
+        console.log("******exp2******");
+
+        let obj = {one: 1};
+        Object.assign(obj, {two:2 }, {two: 3}, {four: 4});
+        for (var pty in obj) {
+            console.log(pty, obj[pty]);
+        };
+
+        // two 중복 프로퍼티이므로 오른쪽 값
+
+    </script>
+</body>
+</html>

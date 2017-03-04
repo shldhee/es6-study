@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        let Sports = function() {
+            this.member = 11;
+        };
+
+        Sports.prototype.getMember = function() {};
+        let sportsObj = new Sports();
+        console.log(sportsObj.__proto__ === Sports.prototype);
+
+
+        console.log("******exp2*******");
+
+        let Sports2 = function() {};
+        Sports2.prototype.get = function() {};
+        let sportsObj2 = new Sports2();
+
+        sportsObj2.__proto__.set = function() {};
+        sportsObj2.set();
+
+        let result = Sports2.prototype.set;
+        console.log(result);
+    </script>
+</body>
+</html>

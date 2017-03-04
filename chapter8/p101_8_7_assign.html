@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+
+        try {
+            let obj = Object.assign(null, {x:1});
+        } catch (e) {
+            console.log("null 지정 불가");
+        } finally {
+            console.log(Object.assign(123));
+            console.log(Object.assign(467,70)); //70열거가능하지가 않다. 467반환
+        }
+
+        console.log("***exp2***");
+
+        console.log(Object.assign("ABC", {one: 1}));
+        console.log(Object.assign(Symbol("ABC"), {one: 1}));
+
+        try {
+            let obj = Object.assign("ABC", "ONE");
+        } catch (e) {
+            console.log("파라미터 모두 사용 불가");
+        };
+
+        console.log("***exp3***");
+
+        let oneObj = {};
+        Object.assign(oneObj, "ABC", null);
+        console.log(oneObj);
+
+        let twoObj = {};
+        Object.assign(twoObj, {key1: undefined, key2: null}, {a:1,b:2},"bbb","cc");
+        console.log(twoObj);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+        let count = {
+            current: 1,
+            get getCount() {
+                return ++this.current;
+            }
+        };
+
+        //getCount getter이므로 복사하지 않고 호출 this.current에 1을 더하므로 2를 반환
+
+
+        let mergeObj = {};
+        Object.assign(mergeObj, count);
+        console.log(mergeObj); //2
+    </script>
+</body>
+</html>
