@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    "use script"
+
+    let arrayObj = Array.from({0: "zero", 1: "one", length: 2});
+    console.log(Array.isArray(arrayObj));
+    console.log(arrayObj);
+
+
+    let stringObj = Array.from("ABC");
+    console.log(stringObj);
+
+    //let arrayLike = {0: 10, 1: 50, length: 2};
+    let values = Array.from(arrayLike, function(value) {
+      return value + this.bonus;
+    }, {bonus: 100});
+    console.log(values); //[110, 150]
+
+    /**
+     * Array-like 오브젝트의 프로퍼티를 하나씩 읽고 읽은 프로퍼티 값이 콜백 함수의 value 파라미터로 설정됩니다.
+     * length키값은 제외
+     * 콜백함수에서 this로 from()의 세 번째 파라미터에 지정한 오브젝트를 참고할 수 있다.
+     */
+
+</script>
+</body>
+</html>
