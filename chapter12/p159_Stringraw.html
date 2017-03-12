@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		let one = 1, two = 2;
+		console.log("1:", String.raw`1+2=${one+two}`);
+		console.log("1:", `1+2=${one+two}`);		
+		console.log("2:", `줄 바꿈-\n줄 바꿈-2`);
+		console.log("3:", String.raw`줄 바꿈-1\n줄 바꿈-2`);
+
+		console.log("4:", `Unicode \u0031\u0032`);
+		console.log("5:", String.raw`Unicode \u0031\u0032`);
+
+	</script>
+</body>
+</html>

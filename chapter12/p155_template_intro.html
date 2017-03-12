@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+/*		console.log('1:',`123ABC가나다`);
+		console.log('2:', `라인 1\n라인 2`);
+		console.log('3:',`첫 번째 줄
+		두 번째 줄`);
+
+
+		let one = 1, two = 2;
+		console.log('4:', `1 + 2는 ${one + two}이다`);*/
+
+		let one = 1, two = 2;
+		function tagFunction(text, value) {
+			console.log('1:', text[0]);
+			console.log('2:', value);
+			console.log('3:', text[1]);
+			console.log('4:', typeof text[1]); // 빈 배열 string
+		}
+
+		tagFunction `1+2=${one + two}me`;
+
+		let three = 3, four = 4;
+		function function2(text, plus, minus) {
+			console.log(text[0], plus, text[1]);
+			console.log(minus, text[2], text[3]);
+		}
+		//파라미터 반환 (["3+4=","이고 3-4=","이다"],3,-1)
+
+		function2 `3+4=${three+four}이고 3-4=${three-four}이다`;
+	</script>
+</body>
+</html>
