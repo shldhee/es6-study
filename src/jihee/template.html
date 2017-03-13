@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+</head>
+<body>
+<script>
+"use strict";
+let one = 1, two = 2;
+//console.log(`${one+two}`);
+
+function tagFunctiion(text, value1, value2){
+    console.log(text); //raw
+    console.log(value1); //value
+    console.log(value2); //value
+}
+
+
+function tagFunctiion2(...spread){
+    console.log(spread);
+    console.log(spread[0]);//raw
+    console.log(spread[1]); //value
+    console.log(String.raw(spread[0], spread[1]));//text
+}
+
+//text와 표현식 값을 따로 받는게 가장 깔끔할 듯
+//String.raw ->문자열과 표현식 결과를 문자열에 연결.
+function tagFunctiion3(text, ...spread){
+    console.log(text);//raw-array
+    console.log(Array.isArray(text)); //true
+    console.log(spread);//array
+    console.log(String.raw(text, ...spread));   //두번째 파라미터 이후는 콤마로 받아야함 //text : 1+2=3 이고 1-2=-1
+}
+
+tagFunctiion3 `1+2=${one+two} 이고 1-2=${one-two}`;
+
+</script>
+</body>
+</html>

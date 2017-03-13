@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array</title>
+</head>
+<body>
+<script>
+"use strict";
+let one = 1, two = 2;
+
+function tagFunctiion3(text, ...spread){
+let text2=Array.from(text);
+console.log(Object.is(text, text2)); //false -> new Array();
+}
+
+tagFunctiion3 `1+2=${one+two} 이고 1-2=${one-two}`;
+
+
+let arrayLike={0:10, 1:30, length:2};
+let values=Array.from(arrayLike, function(value){return value+this.bonus}, {bonus:100});
+
+console.log(values);
+
+var values2=Array.prototype.map.call(arrayLike, function(obj){
+    let bouns=100;
+    return obj+bouns;
+});
+
+console.log(values2);
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use stict";
+
+    let Shape=function(){
+        this.name="jihee";
+    }
+
+
+    let shape1=new Shape();
+
+    //static function
+    Shape.functionB=function(){};
+    //method
+    Shape.prototype.functionC=function(param){console.log(param);};
+
+    Shape.prototype.functionC.call(this, "1111")
+
+    console.log("============================");
+    console.dir(Shape);
+    console.dir(shape1);
+
+    //es6
+
+    class Shape2{
+        static functionA(){
+
+        }
+
+        functionB(){
+
+        }
+    }
+
+
+</script>
+</body>
+</html>
