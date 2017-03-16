@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		let result = [10, 20, 30].findIndex((value, index, allData) => value === 20);
+		console.log('result', result); //1
+
+		result = [10, 20, 30].findIndex((value, index, AllData) => value === 77);
+		console.log('result', result); //undefined아니고 -1
+
+		result = [10, 20, 30].findIndex(function(value, index, allData) {
+			return value === 30 && value === this.check;
+		}, {check : 30});
+
+		console.log('result', result); //2
+	</script>
+</body>
+</html>

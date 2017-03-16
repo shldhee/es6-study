@@ -9,6 +9,12 @@
 <body>
     <script type="text/javascript">
         'use strict';
+		/*
+		** 첫번째 파라미터 : 설정할 값(복사값)
+		** 두번째 파라미터 : 시작 인덱스(생략시 디폴트값 인덱스 0)
+		** 세번째 파라미터 : 끝 인덱스 숫자 직전까지(생략시 디폴트값 인덱스 끝)
+		** 배열의 값뿐만 아니라 다른 객체들도 가능하다.
+		*/
         let one = [1,2,3];
         console.log(one.fill(7));
 
@@ -17,6 +23,14 @@
 
         let three = [1,2,3,4,5];
         console.log(three.fill(7,1,3));
+
+		let four = [1,2,3,4,5];
+        console.log(four.fill(["a","b","c"],1,3));
+
+		let five = [1,2,3,4,5];
+		console.log(five.fill(["a","b","c"],1,3));
+
+
     </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		let iterator = [10, 20, 30].keys();
+		console.log(iterator);
+
+		for (var key of iterator) {
+			console.log(key, ":", iterator[key]); //key값 : undefined
+		}
+
+		
+
+		/*
+		** 배열 인덱스를 key 값으로 사용하여 이터레이터 오브젝트를 생성
+		** key 값만 생성
+		*/
+	</script>
+</body>
+</html>
