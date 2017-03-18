@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+
+		//unicode 플래그
+		let result = /\u{31}\u{32}/u.test("12");
+		console.log(/\u{31}\u{32}/u);
+		console.log(result);
+
+		result = /\u{31}\u{32}/.test("12");
+		console.log(/\u{31}\u{32}/);
+		console.log(result);
+
+		//문자열에 일치하는 패턴이 있는지 알고 싶을 때는 test() 사용
+
+		/*
+		** \u (u플래그) 사용하여 \u{31} 1, \u{32} 2이므로 test("12")와 매치되어 true
+		*/
+
+
+		//sticky 플래그
+
+		let regexpObj = /CD/y;
+		console.log("1:", regexpObj.lastIndex);
+		console.log("2:", regexpObj.test("ABCDEF"));
+
+		regexpObj.lastIndex = 2;
+		console.log("2-1:", regexpObj.lastIndex);
+		console.log("3:", regexpObj.test("ABCDEF")); //2에 "C"매치 3에 "D"매치 마지막 인덱스 +1  lastIndex 4
+		console.log("4:", regexpObj.lastIndex);
+		console.log("5:", regexpObj.test("0123CD"));
+		console.log("4:", regexpObj.lastIndex); //6
+	</script>
+
+</body>
+</html>
