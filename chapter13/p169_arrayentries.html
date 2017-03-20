@@ -10,15 +10,16 @@
     <script type="text/javascript">
         'use strict';
 		/*
-		** entries() 메서드는 배열의 각 인덱스에 대한 key/value 쌍을 가지는 새로운 Array Iterator 객체를 반환
+		** entries() 메서드는 배열의 각 인덱스에 대한 key/value 쌍을 가지는 새로운 Array Iterator(이터레이터 오브젝트) 객체를 반환
 		*/
         let values = [10, 20, 30];
-		console.log(values);
-        let iterator = values.entries();
+        let iterator = values.entries(); // 0 : 10, 1: 20, 2: 30
+
 		console.log('iterator', iterator);
         console.log(iterator.next()); //next() 이해가 잘 안된다...
+
 		//next() 메소드 실행시 value값 [key, value] 를 반환한다.
-		console.log('iterator.next().value',iterator.next().value);
+		console.log('iterator.next().value',iterator.next().value); // 1, 20, false
 		console.log('iterator.next().value',iterator.next().value);
 		console.log('iterator.next().value',iterator.next().value);
 

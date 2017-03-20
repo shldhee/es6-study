@@ -10,9 +10,7 @@
 	<script type="text/javascript">
 		'use strict';
 		let iterator = [10, 20, 30].values(); //error
-		console.log(iterator);
-		console.log(iterator.value());
-		console.log(iterator.next());
+		console.log(iterator.next().value);
 
 		var arr = ['w', 'y', 'k', 'o', 'p'];
 		var eArr = arr.values(); //error
@@ -21,9 +19,11 @@
 		console.log(eArr.next().value); // k
 		console.log(eArr.next().value); // o
 		console.log(eArr.next().value); // p
+
 		/*
 		** 배열 인덱스 key값은 포함되지 않고 엘리먼트 값으로 이터레이터 오브젝트를 생성
 		*/
+
 		//Safari9 에서만 지원하는것 같네요 ?
 	</script>
 </body>

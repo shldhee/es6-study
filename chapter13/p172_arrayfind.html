@@ -14,23 +14,23 @@
 		** find(콜백함수, this로 접근할 오브젝트)
 		** 콜백함수(값, 인덱스, 배열전체)
 		*/
-		/*let result = [1,2,3].find((value, index, allData) => value === 2);
-		console.log(result);
+		let result = [6,3,5,4,2].find((value, index, allData) => index === 4);
+		console.log(result); // 2
 
 		result = [1, 2, 1].find(function(value, index, allData){
 			console.log(this.key);
 			return value === 2 && value === this.key;
 		}, {key: 2});
-		console.log(result);*/
+		console.log(result);  //2
 
 		//find()메서드는 해당 배열 안의 값을 하나 반환합니다.
 		//이 때, 콜벡으로 전달받은 테스트 함수가 요구하는 조건을 만족하는 값을 반환합니다.
 		//그렇지 않으면 undefined를 반환합니다.
+
 		function isPrime(element, index, array) {
 		  var start = 2;
 		  while (start <= Math.sqrt(element)) {
 		    if (element % start++ < 1) {
-			  var test = element % start;
 		      return false;
 		    }
 		  }
