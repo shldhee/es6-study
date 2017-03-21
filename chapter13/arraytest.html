@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		var array = ['w', 'l', 'z', 'l', 'a', '0', '0', '0'];
+		var eArray = array[Symbol.iterator]();
+		console.log(eArray.next().value); // w
+		console.log(eArray.next().value); // l
+		console.log(eArray.next().value); // z
+		console.log(eArray.next().value); // l
+		console.log(eArray.next().value); // a
+		console.log(eArray.next().value); // 0
+		console.log(eArray.next().value); // 0
+		console.log(eArray.next().value); // 0
+
+
+		//values() 메서드는 배열의 각 인덱스에 대한 value를 가지는 새로운 Array Iterator 객체를 반환합니다.
+
+		var arr = ['w', 'y', 'k', 'o', 'p'];
+		var eArr = arr.values();
+		// your browser must support for..of loop
+		// and let-scoped variables in for loops
+		for (let letter of eArr) {
+		  console.log(letter);
+		}
+
+		var arr = ['w', 'y', 'k', 'o', 'p'];
+		var eArr = arr.values();
+		console.log(eArr.next().value); // w
+		console.log(eArr.next().value); // y
+		console.log(eArr.next().value); // k
+		console.log(eArr.next().value); // o
+		console.log(eArr.next().value); // p
+	</script>
+</body>
+</html>
