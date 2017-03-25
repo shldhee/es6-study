@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+
+		// 제너레이터 선언문
+		function* sports(one, two) {
+			console.log("함수 블록");
+			yield one + two;
+		};
+		console.log(typeof sports); // 제너레이터 함수의 typeof는 function
+
+
+		let genObj = sports(1, 2); // sports(1, 2)로 호출하면 sports함수 블록을 실행하지 않고 제너레이터 오브젝트를 생성하여 반환합니다. 함수 블록을 실행하면 console.log("함수 블록"); 이 실행되어야 한다.
+
+		console.log(typeof genObj); // object 이는 new 연산자로 생성한 인스턴스와 타입이 같다. 인스턴스 형태지만 이책에선 new 연산자를 사용하여 생성한것을 인스터스라고 하므로 이건 제너레이터 오브젝트로 표기한다.
+
+	</script>
+</body>
+</html>

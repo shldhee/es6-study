@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict'
+
+		let sports = function* (one, two) {
+			console.log('함수 블록'); // 제너레이터 블록함수
+			yield one + two; // 제너레이터 블록함수
+		};
+
+		let genObj = sports(10, 20); // one = 10, two = 20 , 함수 블록의 코드를 실행하지 않고 생성한 제너레이터 오브젝트를 반환
+		console.log(genObj.next()); // 함수 블록, Object {value: 30, done: false} 제너레이터 오브젝트는 이터레이터 오브젝트이다. next() 함수 호출시 sports 제너레이터 함수의 함수블록을 실행
+
+
+	</script>
+</body>
+</html>
