@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>generator object</title>
+</head>
+<body>
+    1. function* 선언문
+    2. function* 표현식
+    3. GeneratorFunction //=new Function(); //매개변수에 param,function body
+    
+    ->generator 함수 호출시 generator object생성하여 반환(iterator object)
+    ->yield 키워드 단위로 나누어서 실행
+    ->new 연산자를 사용할 시 typeError 발생함
+
+<script>
+////////////1. function* 선언문
+    function* sports(one, two){
+        yield one;
+        yield two;
+        yield one+two;
+    }
+    
+    //console.dir(typeof sports(1,2)); //return generator object;
+    
+////////2. function* 표현식 -> 선언식과 같음
+    var generatorObject=sports(1,2);
+    var result;
+    do{
+        result=generatorObject.next();
+        //console.log(result);
+    }
+    while(!result.done);
+ 
+////////  3. GeneratorFunction //=new Function();
+    //console.dir(sports); //prototype 에 constructor가 없음
+    var genConst=Object.getPrototypeOf(sports).constructor;
+    let hobby=new genConst(
+        "one", "two", "console.log('함수블럭222');yield one+two"
+    );
+    //console.log(hobby(3,4).next());
+</script>
+</body>
+</html>

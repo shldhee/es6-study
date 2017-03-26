@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array3</title>
+</head>
+<body>
+find()
+<script>
+    //콜백함수에서 true인 엘리먼트를 반환
+    //param1: 콜백함수
+    //param2: 콜백함수에서 this로 접근할 object
+
+    let result=[1,2,3].find((value)=>value<3);
+    //값 하나만 반환;;
+    console.log(result);
+
+    console.log(find([1,2,3],(value)=>value<3))
+    function find(value ,callback, object){
+        let result=[];
+        for(var val of value){
+            if(callback(val)) result.push(val);
+        }
+        return result;
+    }
+</script>
+</body>
+</html>

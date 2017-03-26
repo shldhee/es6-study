@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>generator yield</title>
+</head>
+<body>
+    1.generator 함수를 멈추게 하거나 다시 실행하는데 사용됨
+    2.[returnvale]=yield [expression] -> 오른쪽 표현식을 평가하여 결과를 반환하지만 returnvalue에 할당하지는 않음// next()의 파라미터 값으로 설정됨
+    3. yield를 수행하면 done=false, value=.. // 수행하지 못하면 done=true, value=undefined 할당
+    4. next()수행시 이전 yield의 다음줄부터 yield까지 수행함
+
+<script>
+function* sport(one){
+    let two=yield one;
+    let param=yield one+two;
+    yield param+one;
+}
+let generatoObject=sport(10);
+//let result;
+//    do{
+//        result=generatoObject.next();
+//        console.log(result);
+//    }while(!result.done);
+    
+console.log(generatoObject.next()); //10 ->yield one 수행 
+console.log(generatoObject.next(10)); //undefiend ->let two, yield one+two 실행
+console.log(generatoObject.next(20)); // 30 ->let param, yield param+one 수행
+    
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array2</title>
+</head>
+<body>
+fill(), entries(), values(), keys()
+<script>
+    //array.prototype.fill() :범위값 변경
+    //fill(param1, param2, param3) param1: 설정할 값-any type, param2:시작인덱스, param2:끝 인덱스(포함x)
+    let one=[1,2,3];
+    one.fill([1,2],0,1); //param1배열도 가능
+    one.fill({1:1},0,1); //object배열도 가능
+
+    //array.prototype.entries() : iterator object생성
+    let values=[10,20,30];
+    let iterator=values.entries();
+    console.log(iterator instanceof Array); //false ->object
+
+    //비슷하게 key만 가져오는 keys(), value만 가져오는 values()가 있음
+
+
+</script>
+</body>
+</html>
