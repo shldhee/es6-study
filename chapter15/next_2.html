@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+<script>
+    let gen = function*(value){
+      return ++value;
+    }
+    let genObj = gen(1);
+    console.log(genObj.next());
+    
+</script>
+</body>
+</html>

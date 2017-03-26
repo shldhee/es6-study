@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+<script>
+    let gen = function*(param){
+      let one = param + 1;
+      yield one;
+      var two = 2;
+      yield one + two;
+    };
+    let genObj = gen(10);
+
+    console.log(genObj.next());
+    console.log(genObj.next());
+    
+</script>
+</body>
+</html>

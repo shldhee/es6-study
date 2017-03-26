@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+<script>
+    
+    /* 
+        funtion* = 제너레이터 함수
+        1. function* 선언문
+        2. function* 표현식
+        3. GeneratorFunction
+    */ 
+    
+    function* sports(one, two){ // 제너레이터 선언문
+        console.log("함수 블록");
+        yield one + two;
+    };
+    console.log(typeof sports);
+    
+    let genObj = sports(1, 2); // 호출 -> sports 함수 블록을 수행하지 않음, 제너레이터 오브젝트를 생성하여 반환
+    console.log(typeof genObj);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+<script>
+    /*
+        1. yield를 수행하면 표현식 평가 결과가 value 값에 설정, 수행하지 못하면 undefined가 설정
+        2. yield를 수행하면 done 값에 false가 설정, 수행하지 못하면 true가 설정
+        3. 모든 yield 수행을 완료했는데, 다시 next()를 호출하면 수행할 yield가 없으므로 
+           value값에 undefined가 설정되고 done값에 ture설정
+    */
+    
+    function* sports(one){
+      let two = yield one; //yield의 표현식 평가 결과를 왼쪽 return value에 할당하지 않음
+      let param = yield two + one;
+      yield param + one;
+    }
+    let generatorObj = sports(10);
+
+    console.log(generatorObj.next());
+    console.log(generatorObj.next());
+    console.log(generatorObj.next(20)); //next()를 호출하면 next() 파라미터 값이 return value에 설정되므로 20은 param에 할당
+    
+</script>
+</body>
+</html>

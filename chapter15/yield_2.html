@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+<script>
+    function* sports(one){
+      yield one;
+      let check = 10;
+    }
+    let genObj = sports(10);
+
+    console.log(genObj.next()); //현 시점의 상태만 체크
+    console.log(genObj.next());
+    
+</script>
+</body>
+</html>

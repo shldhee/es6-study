@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>    
+   
+    <script>
+        //fill() : 범위 값 변경
+        let one = [1,2,3,4,5];
+        console.log(one.fill(7,1,3));
+        //첫번째 값 : 설정할 값, 두번째 값 : 복사 시작할 인덱스 값, 세번째 값 : 복사 끝낼 직전의 인덱스 값i
+        
+        //entries() : 이터레이터 오브젝트 생성
+        let values = [10, 20, 30];
+        let iterator = values.entries();
+        console.log(iterator.next());
+        console.log(iterator.next());
+        //iterator.next()로 인덱스 0~1번째 까지 이터레이션 처리를 하였기 때문에 아래 for-of문에서는 인덱스 2번째만 처리
+        //console.log(iterator.next());
+        //console.log(iterator.next());
+        
+        for(var [key, value] of iterator){
+            console.log(key, ":", value);
+        }
+    </script>
+</body>
+</html>

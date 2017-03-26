@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+
+<script>
+    let gen = function*(value){
+      value = value + 10;
+      yield ++value;
+      value = value + 7;
+      yield ++value;
+    };
+    let genObj = gen(1);
+
+    console.log(genObj.next()); //next()를 호출하면 제너레이터 함수 첫줄 부터 yield의 표현식 까지 수행
+    console.log(genObj.next());
+    console.log(genObj.next());
+    
+</script>
+</body>
+</html>
