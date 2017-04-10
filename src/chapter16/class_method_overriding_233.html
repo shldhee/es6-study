@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    class Sport {
+        constructor(member){
+            this.member = member;
+            console.log(this.member);
+        }
+    }
+
+    class Soccer extends Sport{
+        constructor(member){
+            super(member);
+            this.member = 456;
+            console.log(this.member);
+        }
+    }
+    let obj = new Soccer(123);
+
+
+
+
+
+</script>
+</body>
+</html>

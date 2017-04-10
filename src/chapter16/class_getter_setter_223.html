@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    class Member{
+        get getName(){
+            return "이름";
+        }
+    }
+
+    let memberObj = new Member();
+    console.log(memberObj.getName);//메소드 호출할때()이부분 생략 가능하다는걸 보여주려고 이렇게 장문으로 설명한듯..
+
+    class Member2{
+        set setName(name){
+            this.name = name;
+        }
+        get getName(){
+            return this.name;
+        }
+    }
+
+    let memberObj2 = new Member2();
+
+    memberObj2.setName = "dam";
+    console.log(memberObj2.getName);
+
+
+</script>
+</body>
+</html>

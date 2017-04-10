@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //strict모드에서 자동으로 실행된다
+    //es6는 strict모드가 기본환경설정임 eval, with문사용 할수없고 var키워드 사용 없이 변수 선언 불가.
+
+    class Member{
+        setName(name){
+            this.name = name;
+        }
+        getName(){
+            return this.name;
+        }
+    }
+
+    Member.prototype.getTitle = function () {}; //클래스에 메소드 추가하라면 이런식으로 작성하시면 됩니다.
+    console.log(typeof  Member);
+
+    let member = new Member();
+    console.log(member);
+</script>
+</body>
+</html>

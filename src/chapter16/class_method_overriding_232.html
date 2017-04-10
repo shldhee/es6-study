@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    class Sport {
+        setGround(ground){
+            this.ground = ground;
+        }
+    }
+
+    class Soccer extends Sport{
+        setGround(ground){
+            super.setGround();//슈퍼메소드를 왜쓰는거지??
+            this.ground = ground;
+        }
+    }
+
+    let obj = new Soccer(11);//11은 왜 던지는거지 정말 이해불가...
+    obj.setGround("상암구장");
+    console.log(obj.ground);
+
+
+
+</script>
+</body>
+</html>
