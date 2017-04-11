@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let type = "Type";
+    class Sport {
+        static ["get" + type](kind){
+            return kind ? "스포츠":"음악";
+        }
+    }
+
+    console.log(Sport["get"+type](1));
+
+</script>
+</body>
+</html>

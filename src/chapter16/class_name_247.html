@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    class Sports {
+        constructor(){
+            console.log("Sports:", new.target.name);//Sports
+        }
+    }
+
+    class Soccer extends Sports{
+        constructor(){
+            super();//Soccer
+            console.log("Sports:", new.target.name);//Soccer
+        }
+    }
+
+    let sportsObj = new Sports();
+    let soccerObj = new Soccer();
+
+</script>
+</body>
+</html>

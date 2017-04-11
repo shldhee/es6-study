@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    class ExtendsImage extends Image{
+        constructor(){
+            super();
+        }
+        setProperty(img){
+            this.src = img.src;
+            this.alt = img.alt;
+            this.title = img.title;
+        }
+    }
+
+    let imageObj = new ExtendsImage();
+    let properties = {
+        src : "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png",
+        alt : "다음",
+        title : "daum"
+    };
+
+    imageObj.setProperty(properties);
+    document.querySelector("body").appendChild(imageObj);
+
+</script>
+</body>
+</html>

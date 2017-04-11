@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let Sports = {
+        getTitle(){
+            console.log("Sports");
+        }
+    };
+
+    let Soccer = {
+        getTitle(){
+            super.getTitle();
+            console.log("Soccer");
+        }
+    };
+
+    Object.setPrototypeOf(Soccer, Sports); // 쉽게 말하면 Soccer __proto__에다가 Sports를 넣는다고 생각하면됨
+    Soccer.getTitle();
+
+
+
+
+
+
+</script>
+</body>
+</html>

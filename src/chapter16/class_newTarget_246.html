@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let sports = function () {
+        console.log(new.target);//new.target은 constructor를 참조
+    };
+    sports();
+    new sports();
+</script>
+</body>
+</html>
