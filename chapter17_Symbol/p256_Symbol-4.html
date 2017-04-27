@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p256_Symbol-4</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		let sym = Symbol("123");
+		try {
+			`${sym}`;
+		} catch (e) {
+			console.log("`${sym} 불가`");  //`${sym} 불가`
+		}
+
+		/*
+			탬플릿에 Symbol값을 사용하면 에러 발생
+			템플릿에 반영되면 문자열 값으로 변환되어 외부로 노출되기 때문
+			Symbol값을 생성한 형태마저도 반영되지 않습니다.
+			***Symbol값을 외부에 노출시키지 않는 것이 Symbol의 특징입니다.***
+		*/
+	</script>
+</body>
+</html>

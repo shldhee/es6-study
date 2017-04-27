@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p254_Symbol-2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		/*
+			Object(123) 지정하면 Number 오브젝트 반환
+			Object() 파라미터에 Symbol 값을 지정하면 Symbol 오브젝트 반환
+			*Symbol 오브젝트에 Symbol 메서드, Symbol.prototype, prototype에 연결된 프로퍼티가 설정
+		*/
+
+		let sym = Symbol("123"); // Symbol 값 생성
+		const obj = Object(sym); // Symbol 오브젝트를 생성하여 반환
+		console.log(obj);
+		/*
+			Symbol.prototype에 연결된 프로퍼티가 __proto__에 첨부, 이를 통해 Symbol.prototype에 연결된 메서드와 프로퍼티를 알수 있습니다.
+			Symbol("123")으로 생성한 Symbol 값이 [[PrimitiveValue]]에 설정되지 않고 Symbol 값을 생성한 형태인 Symbol("123")이 설정
+		*/
+
+		console.log(obj == sym);  // sym은 Symbol(123), obj는 Symbol오브젝트지만 [[PrimitiveValue]] : Symbol(123) 이므로 원시값만 비교해 true;
+		console.log(obj === sym); // type까지 비교하므로  Symbom 값과 Object 오브젝트를 비교해서 false
+	</script>
+</body>
+</html>

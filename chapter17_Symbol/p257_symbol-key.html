@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p256_symbol-key</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		/*
+			유일한 값을 갖는 Symbol 특성을 활용하여 Symbol 값을 오브젝트의 프로퍼티 키로 사용하면 프로퍼티 키가 중복되지 않는다.
+			[Symbol()] 형태와 같이 대괄호 [] 안에 Symbol()을 작성합니다.
+			{ [Symbol()] : 123 } 형태에서 프로퍼티 키에 작성한 Symbol()을 symbol-keyed property라고 한다.
+			{ "ABC" : 123 } -> { ABC : 123 }
+			하지만 Symbol 값은 문자열이 아니며 값입니다. 그래서 symbol-keyed 프로퍼티로 구분
+		*/
+
+		let sym = Symbol("123");
+		let obj = {[sym]: "456"};
+		/*
+			[sym]과 같이 대괄호 []안에 변수 이름을 작성하여 Object 오브젝트의 프로퍼티 키로 사용한 형태
+			대괄호 []안에 작성하여 Symbol을 나타내면서 타입이 문자열이 아니라는것을 나타냅니다.
+			[sym]을 symbol-keyed 프로퍼티
+		*/
+		console.log(obj);	// Object { Symbol(123): "456" }
+
+		console.log(obj[sym]);	// 456
+		console.log(obj.sym); // undefined
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p259_for-in</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		// for-in 문에서 symbol-keyed 프로퍼티가 열거되지 않습니다. Symbol의 데이터 속성이 [[Enumerable]]:false이기 때문이다.
+
+		let obj = { nine : 999 };
+		obj[Symbol("one")] = 111;
+		obj[Symbol("two")] = 222;
+		console.log(obj); // Object {nine: 999, Symbol(one): 111, Symbol(two): 222}
+
+		for (var key in obj) {
+			console.log(key); // nine
+		}
+
+
+	</script>
+</body>
+</html>

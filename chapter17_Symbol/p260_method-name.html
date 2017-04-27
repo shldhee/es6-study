@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p259_for-in</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		const symbolOne = Symbol("symbol one");
+		const symbolTwo = Symbol("symbol two");
+
+		class Sports {
+			static [symbolOne]() {  // 대괄호 [ ] 안에 Symbol 값을 할당한 변수 이름을 작성하고 이어서 소괄호 ()를 작성
+				return "Symbol-1";
+			}
+			[symbolTwo]() {
+				return "Symbol-2";
+			}
+		}
+		console.log(Sports[symbolOne]());	// "Symbol-1"
+
+		let obj = new Sports();
+		console.log(obj[symbolTwo]());	 // "Symbol-2"
+	</script>
+</body>
+</html>

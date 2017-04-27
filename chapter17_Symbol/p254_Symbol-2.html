@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p255_Symbol-3</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		let sym = Symbol();
+		try {
+			sym + "문자열"
+		} catch (e) {
+			console.log("문자열 연결 불가");
+		};
+		console.log(String(sym) + "연결");		// Symbol() + 연결 *Symbol값을 생성한 형태인 "Symbol()"이 연결
+		console.log(sym.toString() + "연결");		// Symbol() + 연결
+	</script>
+</body>
+</html>

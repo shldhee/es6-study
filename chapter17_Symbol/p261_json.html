@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p260_json</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		let sym = Symbol("Key");
+		let result = JSON.stringify({[sym] : "값"});
+		console.log(result); // { }
+
+		/*
+			Symbol값을 외부에 노출되지 않도록 하기 위해
+			JSON.stringify()를 실행하면 프로퍼티 키와 프로퍼티 값이 문자열로 변환되지 않고 빈 Object가 반환 ( {} )
+		*/
+	</script>
+</body>
+</html>
