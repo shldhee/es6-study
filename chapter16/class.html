@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			## class 선언문
+
+			class name {}
+			class name extends super_name {}
+
+			name 다음의 extends는 키워드로 super_name(슈퍼 클래스)를 상속받을 때 사용
+
+			## class 표현식
+
+			let name = class {}
+			let name = class inner_name {}
+			let name = class extends super_name {}
+			let name = class inner_name extends super_name {} // inner_name 자기 자신을 호출
+
+			## constructor
+
+			constructor는 클래스 인스턴스를 생성하고 생성한 인스턴스를 초기화하는 역할
+			new Member() 실행하면 Member.prototype.constructor가 호출
+			클래스에 constructor를 작성하지 않으면 prototype의 constructor가 호출 이를 디폴트 constructor라고 한다. constructor가 없으면 인스턴스를 생성할 수 없다.
+
+			``` js
+			class Member {
+				constructor(name) {
+					this.name = name;
+				}
+				getName() {
+					return this.name;
+				}
+			}
+			let memberObj = new Member("스포츠");
+			console.log(memberObj.getName());
+			```
+
+			## constructor 반환 값 변경
+
+			constructor에 일반적으로 return 문을 작성하지 않으며, 생성한 인스턴스를 반환합니다.
+			한편, return문으로 인스턴스 이외의 값을 반환할 수 있습니다.
+			Object 오브젝트(객체)를 return하면 이를 반환
+
+			``` js
+			class Member {
+				constructor(){
+					return { name: "이순신" }; // { name : "홍길동" } 반환
+				}
+				getName() {
+					return "이름";
+				}
+			};
+
+			let memberObj = new Member();
+			console.log('memberObj.name', memberObj.name);
+			console.log('memberObj.getName()', memberObj.getName); // 인스턴스를 반환하지 않고  { name : "홍길동" } 반환하므로 getName 메소드가 존재하지 않아 undefined
+			```
+
+			## getter, setter
+
+			클래스에 getter, setter 선언할 수 있습니다. 메서드 이름 앞에 "get"을 작성하면 getter, "set"을 작성하면 setter
+
+			```js
+			찾아보자
+			```
+
+			## 상속
+
+			클래스를 상속받으면 상속받은 클래스의 메서드와 프로퍼티를 사용할 수 있습니다.
+			상속해 주는 클래스를 일반적으로 부모 클래스, 슈퍼 클래스라고 부른다.
+			상속받는 클래스를 일반적으로 자식 클래스, 서브 클래스라고 부른다.
+
+			객체지향자바스크립트의 원리 살펴보기!!
+
+			```js
+			function Sports(member) {
+				this.member = member;
+			};
+			Sports.prototype.setItem = function(item) {
+				this.item = item;
+			};
+			function Soccer(member) {
+				Sports.call(this, member);
+			};
+			// setGround를 Sports.prototype에 추가 Sports.prototype에 연결된 메서드를 Soccer.prototype.__proto__에 첨부
+			Soccer.prototype = Object.create(Sports.prototype, {
+				setGround: {
+					value: function(ground) {
+						this.ground = ground;
+					}
+				}
+			});
+			Soccer.prototype.constructor = Soccer;
+
+			var obj = new Soccer(11); // Sports() 호출 후 디폴트 constructor 호출 그래서 Sports()를 생성자(constructor) 함수라고 부른다.
+			obj.setItem("축구");
+			obj.setGround("상암");
+
+			console.log(obj.member);
+			console.log(obj.item);
+			console.log(obj.ground);
+			```
+
+			## extends 키워드
+
+			class subClass extends superClass { }
+
+			`class Soccer extends Sports{}` Soccer가 상속받는 서브 클래스이고, Sports가 상속해주는 슈퍼 클래스입니다.
+			new Soccer()로 인스턴스를 생성하면 인스턴스에서 Soccer 클래스 Sports 클래스의 메서드를 호출할 수 있습니다.
+
+			***extends 키워드는 서브클래스의 prototype에 __proto__를 만들고 여기에 슈퍼 클래스의 prototype에 연결된 프로퍼티를 연결*** 복사하는것이 아니라 공유!
+
+
+		*/
+
+		class Sports {
+			constructor(member) {
+				this.member = member;
+			}
+
+			getMember() {
+				return this.member;
+			}
+		};
+
+		class Soccer extends Sports {
+			setGround(ground) {
+				this.ground = ground;
+			}
+		};
+
+		let obj = new Soccer(11);
+		console.log('obj.getMember()', obj.getMember());
+
+
+	</script>
+</body>
+</html>
