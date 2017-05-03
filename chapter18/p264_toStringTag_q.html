@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p264_toStringTag_q</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			toStringTag
+			[object Object] 형태에서 Object를 Symbol.toStringTag 값으로 표시합니다.
+		*/
+
+		let Sports = function() {};
+
+		let sportsObj = new Sports; // 파라미터가 없을땐 ()를 생략 가능하다.
+		console.log('sportsObj.toString()', sportsObj.toString()); // [object Object] 오브젝트로 [object Object]를 반환하기 때문에 함수랑 구분하기 어렵다.
+
+		Sports.prototype[Symbol.toStringTag] = "Sports-Function"; // [object Object]의 Object에 표시할 문자열을 지정 임의의 문자열 가능
+		console.log('sportsObj.toString()', sportsObj.toString()); //  [object Sports-Function]
+		// sportsObj.toString()을 실행하면 엔진에서 제공하는 디폴트 Symbol.toStringTag 값을 반환하기 전에 우선 sportsObj에서 Symbol.toSringTag의 작성 여부를 체크
+		// [object Sports-Function] 정규표현식으로 분리하면 Sports-Function을 구할 수 있습니다.
+
+		/*
+			클래스의 메서드로 사용
+			Symbol.toStringTag를 클래스에 getter로 작성할 수 있습니다.
+		*/
+
+		class Book {};
+		let bookObj = new Book();
+		console.log(bookObj.toString()); // [object Object] , 따라서 Function 오브젝트인지 Object 오브젝트인지 구분이 불가능
+
+		class Sports1 {
+			get [Symbol.toStringTag]() { // !! getter로 작성하지 않고 메서드로 작성하면 [object Object] 반환 ???
+				return "Sports1-class";
+			}
+		};
+
+		let sportsObj1 = new Sports1(); // 인스턴스로 toString() 호출하면 sportsObj 인스턴스에 작성된 get [Symbol.toStringTag] 호출, 호출된 메서드에서 Sports1-class 반환
+		console.log(sportsObj1.toString()); // [Object Sports1-class]
+		console.log(Map.prototype[Symbol.toStringTag]); // !! Map
+
+
+	</script>
+</body>
+</html>

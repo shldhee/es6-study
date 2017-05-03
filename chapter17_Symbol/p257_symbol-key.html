@@ -26,8 +26,8 @@
 		*/
 		console.log(obj);	// Object { Symbol(123): "456" }
 
-		console.log(obj[sym]);	// 456
-		console.log(obj.sym); // undefined
+		console.log(obj[sym]);	// 456 		대괄호 안에 symbol-keyed 프로퍼티 지정하면 obj 오브젝트에서 symbol-keyed 프로퍼티 값이 같은 프로퍼티 값을 반환
+		console.log(obj.sym); // undefined  대괄호 []를 사용하지 않고 obj.sym 형태로 작성하면 에러가 발생하지 않지만 undefined 반환
 	</script>
 </body>
 </html>

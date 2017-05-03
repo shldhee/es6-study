@@ -9,7 +9,10 @@
 <body>
 	<script type="text/javascript">
 		'use strict';
-		// for-in 문에서 symbol-keyed 프로퍼티가 열거되지 않습니다. Symbol의 데이터 속성이 [[Enumerable]]:false이기 때문이다.
+		/*
+			for-in 문에서 symbol-keyed 프로퍼티가 열거되지 않습니다. Symbol의 데이터 속성이 [[Enumerable]]:false이기 때문이다.
+			Object.getOwnPropertySymbols()를 사용해 symbol-keyed 프로퍼티를 열거 가능하다 뒷장에서 다룬다.
+		*/
 
 		let obj = { nine : 999 };
 		obj[Symbol("one")] = 111;

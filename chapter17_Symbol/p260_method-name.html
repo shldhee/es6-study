@@ -16,11 +16,11 @@
 			static [symbolOne]() {  // 대괄호 [ ] 안에 Symbol 값을 할당한 변수 이름을 작성하고 이어서 소괄호 ()를 작성
 				return "Symbol-1";
 			}
-			[symbolTwo]() {
+			[symbolTwo]() { // Sport.prototype에 연결
 				return "Symbol-2";
 			}
 		}
-		console.log(Sports[symbolOne]());	// "Symbol-1"
+		console.log(Sports[symbolOne]());	// "Symbol-1" 정적메서드 호출 클래스 이름에 이어 대괄호 [] 안에 메서드 이름을 작성하고 소괄호 ()를 작성하면 메서드 호출
 
 		let obj = new Sports();
 		console.log(obj[symbolTwo]());	 // "Symbol-2"

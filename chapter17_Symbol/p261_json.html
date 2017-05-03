@@ -15,7 +15,10 @@
 
 		/*
 			Symbol값을 외부에 노출되지 않도록 하기 위해
+			JSON.stringify()를 실행하면 Object 오브젝트의 프로퍼티를 { "key" : "value" } 형태로 변환해준다.
 			JSON.stringify()를 실행하면 프로퍼티 키와 프로퍼티 값이 문자열로 변환되지 않고 빈 Object가 반환 ( {} )
+			*** 이는 Symbol 값을 외부에 노출되지 않도록 하기 위한 조치 ***
+			Ojbect.getOwnPropertySymbols()를 사용하여 대체 가능 뒤에서 다룬다.
 		*/
 	</script>
 </body>
