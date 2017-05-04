@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p278_null</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			[Symbol.species]()에서 null을 반환하면 디폴트 [Symbol.species]()가 호출
+		*/
+
+		class ExtendOne extends Array {
+			static get [Symbol.species]() {
+				return null;
+			}
+		};
+
+		let oneInst = new ExtendOne(10,20,30);
+		let arrayInst = oneInst.filter(value => value > 10);
+
+		/*
+			oneInst.filter()를 호출하면 ExtendOne 클래스의 [Symbol.species]()가 호출되며 null을 반환
+			이때 디폴트 [Symbol.species]()가 호출된다. 디폴트는 상속받은 Array 오브젝트이므로 Array 인스턴스를 생성하여 반환 따라서 filter() 사용 가능
+		*/
+
+		console.log('arrayInst instanceof Array', arrayInst instanceof Array); // true Array 인스턴스를 반환한다.
+		console.log('arrayInst instanceof ExtendOne', arrayInst instanceof ExtendOne); // false ExtendOne 클래스의 인스턴스가 아니고 Array의 인스턴스
+	</script>
+</body>
+</html>

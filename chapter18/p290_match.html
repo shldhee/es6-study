@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p290_match</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* match 결과를 반환합니다. */
+
+		/*
+			String 오브젝트에서 정규 표현식을 사용할 수 있는 메서드는 match(), replace(), search(), split() 입니다.
+			Symbol 오브젝트에 이에 대응하는 Symbol.match(), Symbol.replace(), Symbol.search(), Symbol.split()이 있다.
+
+			Symbol.mtach()는 String.prototype.match() 대신 호출 된다.
+			따라서, Symbol.match()에 개발자 코드를 작성 할 수 있으므로 match() 기능을 더 다양하게 작성할 수 있다.
+			String.prototype.match()가 호출되면 먼저 오브젝트에서 Symbol.match() 작성 여부를 체크 한다.
+			존재하면 오브젝트의 Symbol.match()를 호출하고,String.prototype.match()는 호출하지 않는다.
+		*/
+
+		console.log("1", "Sports".match(/s/)); // 1 ["s", index: 5, input: "Sports"]
+		/*
+			"Sports"에 패턴 /s/를 매치하면 매치가 되므로 매치 결과를 배열로 반환
+			"Sports"가 문자열이므로 엔진이 String.prototype에 연결된 프로퍼티로 String인스턴스를 생성합니다.
+			생성한 인스턴스에 "Sports"를 설정한 후 match()를 호출하면서 /s/를 파라미터로 넘겨준다.
+		*/
+		class MatchCheck {
+			constructor(base) {
+				this.base = base;
+			}
+			[Symbol.match](target) {
+				return this.base.indexOf(target) >= 0; // Symbol.match()의 target 파라미터에 설정된 문자열이 this.base에 포함되어 있으면 true를 반환, 아니면 false를 반환
+			}
+		}
+		let instMatch = new MatchCheck("sports"); // new MatchCheck()를 실행하면 constructor가 호출되고 파라미터로 넘겨준 "sports"가 this.base에 설정
+		console.log("2:", "po".match(instMatch));
+		/*
+			match()가 호출되면 우선 파라미터에 지정한 instMatch 인스턴스에서 Symbol.match의 작성 여부를 체크합니다.
+			존재하지 않으면 String.prototype.match() 호출, 존재하면 instMatch 인스턴스의 Symbol.match()를 호출
+			Symbol.match(target)을 호출하면서 "po"를 파라미터로 값으로 넘겨준다.
+			Symbol.match()에서 "sports"와 "po"로 match를 행하여, "sports"에 "po"가 있으므로 true 반환
+		*/
+
+		console.log('----match-2----');
+
+		try {
+			"ABC".includes(/ABC/); // includes()앞에 문자열"ABC" 작성했으므로 String.prototype.includes()가 호출되며 /ABC/ 파라미터로 넘겨준다. 그런데 파라미터에 정규 표현식을 작성 하면 에러 발생
+		} catch (e) {
+			console.log("정규 표현식 작성 불가");
+		}
+		/*
+			엔진은 정규 표현식 작성 여부를 체크하기 위해 우선 /ABC/로 오브젝트 생성
+			생성한 오브젝트에서 [Symbol.match]의 존재 여부 체크
+			존재하면 정규 표현식 인식
+			존재하지 않으면 정규 표현식으로 인식하지 않는다.
+		*/
+		let regexpObj = /ABC/; // 정규 표현식 패턴을 변수에 할당하면 RegExp 오브젝트 생성후 할당
+		/*
+			ES6는 생성한 RegExp 오브젝트에 4개의 Symbol 프로퍼티가 빌트인으로 설정(match, replace, search, split)
+			4개의 Symbol프로퍼티에 function() {}이 할당. 따라서 Symbol.match 값을 읽으면 function이 반환
+			즉, 값이 존재하므로 정규 표현식으로 인식한다.
+		*/
+		regexpObj[Symbol.match] = false; // Symbol.match에 값이 없으면 정규 표현식으로 인식하지 않으므로 인식하지 않도록 하기 위해 false를 할당
+		console.log("/ABC/".includes(regexpObj));
+		/*
+			regexpObj의 [Symbol.match] 값이 function()이 아닌 false이므로 regexpObj에 설정된 /ABC/를 정규표현식으로 인식하지 않는다.
+			또한, includes()가 String 오브젝트 메서드이므로 /ABC/를 String 타입으로 변환
+			따라서 문자열 대상을 문자열로 비교하는 "/ABC/".includes("/ABC/")형태가 되어 true를 반환
+		*/
+
+
+	</script>
+</body>
+</html>

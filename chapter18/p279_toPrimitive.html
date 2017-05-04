@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p279_toPrimitive</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			toPrimitive : 오브젝트를 프리미티브 타입으로 변환
+			원시타입(primitive) : number, string, boolean, undefined, null 그리고 symbol
+		*/
+
+		console.log("1:", 1 + undefined); // NaN
+		// 숫자 값에 undefined를 더하면 NaN이 반환
+
+		console.log("2:", 1 + null); // 1
+		// 숫자 1에 null을 더하면 null을 0으로 변환
+
+		console.log("3:", "1" + undefined); // 1undefined
+		// 어느 한쪽이 string 타입이면 연결
+
+
+		console.log("4:", "1" + null); // 1null
+		// "1"이 string 타입이므로
+
+		console.log("----------------toPrimitive-2 오브젝트 연결----------------");
+
+		let obj = {};
+		console.log("1:", 123 + obj); // 123[object Object]
+		// obj가 오브젝트이므로 이를 변환하여 123에 연결. 엔진은 toPrimitive 모듈을 사용하여 obj오브젝트를 [object Object]로 변환
+
+		console.log("2:", "123" + obj); // 123[object Object]
+
+		/*
+			Symbol.toPrimitive()에 개발자 코드로 [object Object]를 변경하여 반환할 수 있따.
+			즉, toPrimitive를 Symbol.toPrimitive()로 오버라이드하여 디폴트로 반환되는 값을 변경할 수 있다.
+		*/
+
+		console.log('----------------세 가지모드----------------');
+
+		/*
+			Symbol.toPrimitive()에서 값을 반환하는 기준은 이를 호출하는 형태에 따라 결정됩니다.
+			엔진은 호출한 곳의 형태에 따라 Symbol.toPrimitive(hint) 파라미터에 세 가지 모드(Mode)를 설정
+			개발자가 작성하는 것이 아니라 엔진이 다음 기준으로 설정
+
+			1. Number 환경이면 "number"를  toPrimitive(hint) 파라미터에 설정
+			2. String 환경이면 "string"를  toPrimitive(hint) 파라미터에 설정
+			3. Number와 String 환경이 아니면 "default"를  toPrimitive(hint) 파라미터에 설정
+		*/
+
+		let obj2 = {
+			[Symbol.toPrimitive](hint) { // [Symbol.toPrimitive]()가 호출되면 엔진이 파라미터에 hint에 "number" 또는 "string" 또는 "default"를 설정
+				if (hint === "number") {
+					return 30;
+				}
+				if (hint === "string") {
+					return "문자열";
+				}
+				return "디폴트"; // 반환값은 임의 설정 가능
+			}
+		};
+
+		console.log("1:", 20 + obj2); // +연산자는 Number 타입으로 변환
+		console.log("2:", 20 * obj2); // 디폴트 값 적용
+
+		console.log("3:", obj2 + 50);
+		console.log("4:", +obj2 + 50);
+		console.log("5:", `${obj2}` + 123); // String 타입
+
+
+
+
+
+
+	</script>
+</body>
+</html>

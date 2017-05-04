@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p269_unscopables</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			with 문에서 사용하며 값이 true이면 프로퍼티를 전개하지 않습니다.
+			[구문] Symbol.unscopables = true/false
+
+			with문을 잘 사용하지 않나보네요
+		*/
+
+		//'use strict';
+		let sports = { soccer: "축구", baseball: "야구"};
+		with(sports) { // with문을 실행하면 파라미터에 작성한 sports 오브젝트의 프로퍼티가 펼쳐진 상태가 됩니다. 따라서 프로퍼티 값을 구할때 sports["soccer"] 가 아닌 soccer만 입력해도 됩니다.
+			console.log(soccer, baseball);
+		};
+		sports[Symbol.unscopables] = { baseball: true }; // baseball 프로퍼티를 전개하지 않습니다.
+		try {
+			with (sports) {
+				console.log(soccer);
+				let value = baseball;
+			}
+		} catch(e) {
+			console.log(e.message);
+		};
+	</script>
+</body>
+</html>

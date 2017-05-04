@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p276_class</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			다른 클래스 반환
+			앞 절의 return문에서 상속받은 Array 오브젝트를 반환하는 형태를 살펴보았다.
+			이 절에서는 다른 클래스를 반환하는 형태를 살펴보자.
+		*/
+
+		class ExtendOne extends Array { // ExtendOne 클래스에서 Array 오브젝트를 상속받는다.
+			showOne() {
+				console.log("ExtendOne");
+			}
+		};
+
+		class ExtendTwo extends Array {
+			static get [Symbol.species]() {
+				return ExtendOne; // ExtendOne 클래스를 반환하는게 아니고, 클래스의 constructor를 반환하므로 인스턴스로 생성하여 반환하게 됩니다.
+			}
+			showTwo(){
+				console.log("ExtendTwo");
+			}
+		};
+		let twoInst = new ExtendTwo(10, 20, 30);
+		let threeInst = twoInst.filter(value => value > 10); /// filter가 실행되면 ExtendTwo 클래스 getter로 작성된 [Symbol.species]()가 호출 되어 ExtendOne 인스턴스를 생성하여 반환
+		console.log(threeInst); // [20, 30]
+
+		threeInst.showOne(); // "ExtendOne"
+		console.log(threeInst.showTwo); // "undefined" ExtendOne의 인스턴스이므로 showOne()이 있다.
+	</script>
+</body>
+</html>

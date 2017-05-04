@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p273_species2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			Symbol.species는 constructor를 반환합니다.
+
+			static 액세서 프로퍼티로 getter만 있고 setter는 없다.
+			Array, Map, Set, Promise, RegExp, ArrayBuffer, TypedArray 오브젝트에 Symbol.species가 빌트인으로 포함
+			위에 거론된 빌트인 오브젝트를 상속받는 클래스에 Symbol.species를 작성하면, 빌트인 오브젝트의 Symbol.species가 오버라이드 된다.
+			이를 통해 클래스의 Symbol.species에서 다른 오브젝트를 반환할 수 있다.
+			예를 들어 인스턴스의 slice()를 호출하면 slice()를 호출한 인스턴스를 반환하지만,
+			클래스에 Symbol.species를 작성하여 인스턴스가 아닌 Array 오브젝트를 반활할 수 있다.
+		*/
+
+		class ExtendArray extends Array {
+			static get [Symbol.species]() { // 클래스의 정적메서드 getter로 [Symbol.species]()를 작성하면 Array 오브젝트의 [Symbol.species]()가 오버라이드 된다.
+				return Array; // 메서드를 호출한 인스턴스가 반환되지 않고 Array 인스턴스가 반환
+				/*
+					return Array가 Array 오브젝트의 constructor를 반환합니다.
+				*/
+			}
+		};
+		let oneInstance = new ExtendArray(1, 2, 3); // ExtendArray클래스에서 Array 오브젝트를 상속받았으므로 생성한 인스턴스는 Array 오브젝트 특성을 갖게 된다.
+
+		let twoInstance = oneInstance.slice(1, 2); // 인스턴스의 Array 오브젝트 메서드를 호출하면 오버라이드된 [Symbol.species]()가 호출된다.
+		console.log(oneInstance instanceof ExtendArray); // true new ExtendArray(1,2,3)으로 생성한 인스턴스를 oneInstance에 할당했으므로 true가 출력
+
+		console.log(twoInstance instanceof Array); // true oneInstance.slice(1,2)를 실행하면 클래스에 작성한 [Symbol.species]()가 호출. return Array로 생성한 인스턴스를 twoInstance에 할당
+		console.log(twoInstance instanceof ExtendArray); // false Array오브젝트로 생성한 인스턴스를 할당했으므로 false가 출력
+
+		// 이처럼 Symbol.species로 반한되는 인스턴스를 변경할 수 있다.
+
+
+	</script>
+</body>
+</html>

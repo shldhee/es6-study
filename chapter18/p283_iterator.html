@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>p283_iterator</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			Symbol.itertor()는 이터레이터 오브젝트를 생성하여 반환합니다.
+			Symbol.iterator는 String, Array, Map, Set, TypedArray 오브젝트의 prototype에 연결되어 있다.
+			오브젝트의 [Symbol.iterator]를 호출하면 이터레이터 오브젝트를 생성하여 반환
+
+			Object 오브젝트에는 Symbol.iterator가 없습니다만, 개발자 코드로 구현할 수 있습니다.
+			이 절에서는 String, Array, Object 오브젝트의 Symbol.iterator를 다룹니다.
+		*/
+
+		/*
+			Array.prototype[Symbol.iterator]
+			배열 처리를 위한 이터레이터 오브젝트를 생성하여 반환합니다. 배열 엘리먼트를 하나씩 처리할 수 있습니다.
+		*/
+
+		let numberArray = [10, 20]; // 빌트인 Array 오브젝트의 prototype에 연결된 프로퍼티로 인스턴스를 생성
+
+		// nubmerArray.__proto__에 Symbol.iterator가 있으므로 numberArray 오브젝트에서 호출이 가능하다.
+		for (let value of numberArray) { // for-of문에서 배열이 반복되는 것은 numberArray 오브젝트에 Symbol.iterator가 있기 때문, 배열 엘리먼트를 하나씩 읽는 처리는 Symbol.iterator()를 호출하여 값을 반화나는 것에 해당합니다.
+			console.log(value);
+		};
+
+		let iteratorObj = numberArray[Symbol.iterator](); // numberArray[Symbol.iterator]()는 numberArray 인스턴스의 Symbol.iterator()를 호출하는 것으로 이터레이터 오브젝트를 생성하여 반환합니다.
+		console.log(iteratorObj.next()); // { value: 10, done: false }
+		console.log(iteratorObj.next()); // { value: 20, done: false }
+		console.log(iteratorObj.next()); // { value: undefined, done: true }
+
+		/*
+			String.prototype[Symbol.iterator]
+			문자열 처리를 위한 이터레이터 오브젝트를 생성하여 반환합니다. 문자열을 문자 단위로 하나씩 처리할 수 있습니다.
+		*/
+
+		let stringValue = "1A";
+		for (let value of stringValue) {
+			console.log(value);
+		}
+		let iterObj = stringValue[Symbol.iterator]();
+
+		console.log(iterObj.next()); // { value: "1", done: false }
+		console.log(iterObj.next()); // { value: "A", done: false }
+		console.log(iterObj.next()); // { value: undefined, done: true }
+
+		/*
+			문자 단위로 반복할 수 있는 것은 String.prototype에 Symbol.iterator가 있기 떄문이다.
+		*/
+
+		/*
+			Object 이터레이션
+			Object 오브젝트에는 Symbol.iterator가 없습니다. 그래서 for-of 문을 사용할 수 없습니다.
+			한편, Symbol.iterator가 있으면 반복 처리 할 수 있으니 Object 오브젝트에 Symbol.iterator를 작성하면 반복 처리를 할 수 있습니다.
+		*/
+
+		let obj2 = {
+			[Symbol.iterator]() { // 이터레이터 오브젝트를 생성하기 위해 [Symbol.iterator]() 호출
+				return { // 반환된 오브젝트를 iteratorObj2에 할당
+					maxCount: 2,
+					count: 0,
+					next() { // for (var result of obj2) {} 형태에서 반복할 때마다 obj2의 next()를 호출하므로 for-of문에서도 사용 가능
+						if(this.count < this.maxCount) {
+							return {value: this.count++, done: false};
+						}
+						return {value: undefined, done: true};
+					}
+				}
+			}
+		};
+
+		let iteratorObj2 = obj2[Symbol.iterator]();
+
+		console.log(iteratorObj2.next());
+		console.log(iteratorObj2.next());
+		console.log(iteratorObj2.next());
+
+	</script>
+</body>
+</html>
