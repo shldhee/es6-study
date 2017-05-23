@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let bookObj = {book:123};
+        bookObj[Symbol("one")] = 10;
+        bookObj[Symbol.for("two")] = 20;
+
+        let names = Object.getOwnPropertyNames(bookObj);
+        console.log("1:", names);
+        let symbolList = Object.getOwnPropertySymbols(bookObj);
+        console.log("2:", symbolList);
+
+        for (let sym of symbolList) {
+            console.log(sym.toString(), bookObj[sym]);
+        }
+
+        let emptyList = Object.getOwnPropertySymbols({});
+        console.log("5:", emptyList.length);
+    </script>
+</body>
+</html>
