@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			keyFor():key 값 반환
+			글로벌 Symbol 레지스트리에서 프로퍼티 키 값을 반환합니다.
+		*/
+
+		let symOne = Symbol.for("123"); // 글로벌 Symbol 레지스트리에 key:123, value : Symbol(123)
+		console.log(Symbol.keyFor(symOne)); // 123 키 값을 반환
+
+		let symTwo = Symbol("222"); // 글로벌 스코프 Symbol 레지스트리에 등록되지 않는다,
+		console.log(Symbol.keyFor(symTwo)); // undefined
+	</script>
+</body>
+</html>

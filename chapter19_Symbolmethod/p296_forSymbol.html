@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			for():Symbol 값 저장
+			글로벌 Symbol 레지스트리에 Symbol값을 저장
+			두 개의 스코프에 Symbol을 저장 할 수 있다.
+			첫 번째 Symbol()은 Symbol을 생성한 스코프에 Symbol 값이 설정
+			두 번째 Symbol.for()는 글로벌 Symbol 레지스트리에 { key : value } 형태로 저장(파라미터가 키, 생성한 Symbol값이 value)
+
+			Symbol 레지스트리에 key값이 존재하면 값을 반환
+
+			Symbol은 세가지 형태로 나눈다.
+
+			1. Symbol() : Symbol 값을 생성하며 스코프 안에서 사용
+			2. Symbol.for() : 글로벌 Symbol 레지스트리에 저장되며 전체프로그램에서 사용
+			3. Well-Known Symbol : 빌트인 Symbol 프로퍼티로 오버라이드하여 기능을 추가, 변경
+		*/
+
+		console.log(Symbol.for("sports")); // Symbol(sports)  sports는 key, Symbol 값이 value, for()가 글로벌 Symbol 레지스트리에 생성한 Symbol 값을 저장하는 역할
+		console.log(Symbol.for("sports")); // Symbol(sports)  위에서 sports key를 사용해 Symbol 값을 생성하지 않고 등록된 Symbol 값을 반환한다.
+
+		console.log(Symbol.for("ABC") === Symbol.for("ABC")); // true  왼쪽의 Symbol.for("ABC")가 글로벌 레지스트리에 등록, 오른쪽은 "ABC"프로퍼티키가 있으므로 Symbol.for("ABC") 값을 반환 따라서 둘은 같은 값이므로 true
+		console.log(Symbol.for("DEF") === Symbol("DEF")); // false 레지스트리 저장, 스코프 저장
+		console.log(Symbol.for(true)); // Symbol(true)
+	</script>
+</body>
+</html>

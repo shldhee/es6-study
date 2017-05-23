@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const newWeakMap = new WeakMap();
+		let sportsObj = {};
+		newWeakMap.set(sportsObj, "Object-1");
+
+		sportsObj = {};
+		newWeakMap.set(sportsObj, "Object-2");
+
+		setTimeout(function() {
+			console.log(newWeakMap);
+		}, 3000); // 새로고침할때마다 달라짐
+	</script>
+</body>
+</html>

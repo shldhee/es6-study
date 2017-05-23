@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const newWeakMap = new WeakMap();
+		(function() {
+			var obj = {item: "weakmap"};
+			newWeakMap.set(obj, "GC");
+			console.log("1:", newWeakMap);
+		}());
+
+		const newMap = new Map();
+		(function() {
+			var obj = {item: "map"};
+			newMap.set(obj, "Keep");
+		}());
+
+		console.log("1:", newWeakMap);
+
+		setTimeout(function() {
+			console.log("1:", newWeakMap); // GC로 죽어서 빈 오브젝트가 출력되야됨 근데 아닌것 같음
+			console.log("2:", newMap);
+		}, 1000);
+	</script>
+</body>
+</html>
