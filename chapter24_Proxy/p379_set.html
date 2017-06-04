@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let target = {};
+        let musicProxy = new Proxy(target, {
+            set(target, key, value, receiver) { //
+                target[key] = value;
+                return true; //  성공적으로 수행된 것을 알려준다.
+            }
+        });
+        musicProxy.music = "음악";
+        console.log(musicProxy.music);
+    </script>
+</body>
+</html>

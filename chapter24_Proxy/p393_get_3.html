@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let sportsObj = Object.defineProperty({}, "sports", {
+            set(){this.value = 123},
+            configurable: false
+        });
+
+        let newProxy = new Proxy(sportsObj, {
+            get(target, key) {
+                return target[key] || 123;
+            }
+        });
+        try {
+            newProxy.sports;
+        } catch (e) {
+            console.log("error");
+        };
+    </script>
+</body>
+</html>

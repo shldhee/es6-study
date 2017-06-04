@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let sports = { soccer: "축구"};
+        let handler = {
+            get(target, key, receiver) {
+                return target[key] + ",11명";
+            }
+        }
+
+        let sportsProxy = new Proxy(sports, handler);
+        console.log(sportsProxy.soccer);
+
+        let desc = Object.getOwnPropertyDescriptor(sports, "soccer");
+        console.log(desc);
+    </script>
+</body>
+</html>

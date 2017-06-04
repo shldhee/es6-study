@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let newProxy = new Proxy({sports: "스포츠"}, {
+            has(target, key) {
+                return key in target ? true : false;
+            }
+        });
+        console.log("sports" in newProxy);
+        console.log("music" in newProxy);
+    </script>
+</body>
+</html>

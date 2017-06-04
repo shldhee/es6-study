@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let target = {event: "축구"};
+        let newProxy = new Proxy(target, {
+            set(target, key, value, receiver) {
+                target[key] = value;
+                console.log(receiver.time);
+                console.log(target.time);
+                target["time"] = receiver.time;
+                return true;
+            }
+        });
+
+        let createObj = Object.create(newProxy, {
+            time: {value: 90}
+        });
+        createObj.player = 11;
+    </script>
+</body>
+</html>

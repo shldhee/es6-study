@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let json = JSON; // prototype, constructor가 없다.
+        console.log(json);
+
+        try {
+            let proxyObj = Proxy(); // prototype, constructor가 없음에도 불구하고 new를 사용해야하는 특수하다.
+        } catch(e) {
+            console.log("new 사용");
+        };
+
+        let target = {ground: "상암"};
+        let newProxy = new Proxy(target, {});
+
+        newProxy.sports = "축구";
+        target.age = 13;
+        console.log(newProxy);
+        console.log(target);
+    </script>
+</body>
+</html>
