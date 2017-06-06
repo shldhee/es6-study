@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            object[propertyKey] 형태로 프로퍼티 값을 구할 수 있지만
+            Reflect.get(object, propertyKey)형태로 값을 구할 수 있다.
+
+            첫번쩨 파라미터 target object , obectj아니면 TypeError
+            두번째 파라미터 key
+            세번째 파라미터(선택) this로 참조할 object
+        */
+
+        let sports = {
+            event: "축구",
+            ground: "상암구장",
+            get getGame() { // getter 호출
+                return this.event + ":" + this.ground; // this는 sports object
+            }
+        };
+
+        console.log(Reflect.get(sports, "event")); // "축구"
+        console.log(Reflect.get(sports, "getGame")); // "축구 : 상암구장"
+        console.log(Reflect.get(sports, "getGame", { event: "농구"}));  // "농구 : undefined"
+
+
+        console.log("***p429_get-2***");
+        /*
+            get() 첫번째 파라미터가 배열이면
+                  두번째 파라미터는 배열의 인덱스가 된다.
+        */
+        let sportsArray = ["축구", "농구"];
+        console.log(Reflect.get(sportsArray, 1)); // 농구
+        console.log(Reflect.get(sportsArray, 5)); // undefined
+
+    </script>
+</body>
+</html>

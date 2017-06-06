@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            target 오브젝트에서 프로퍼티 키를 배열로 반환
+            configurable 속성 값이 false 또는 오브젝트가 확장 불가라도 모든 프로퍼티 키 값을 반환
+        */
+
+        let sportsObj = {
+            soccer: "축구",
+            baseball: "야구",
+            [Symbol.for("one")]: 10
+        };
+
+        console.log(Reflect.ownKeys(sportsObj));
+    </script>
+</body>
+</html>

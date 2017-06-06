@@ -8,14 +8,15 @@
 </head>
 <body>
     <script type="text/javascript">
-        let newProxy = new Proxy({sports: "스포츠"}, {
+        let sportsObj = {baseball: "야구"};
+        let newProxy = new Proxy(sportsObj, {
             has(target, key) {
-                return key in target ? true : false;
+                Reflect.has(target, key);
             }
         });
-        console.dir(newProxy);
-        console.log("sports" in newProxy);
-        console.log("music" in newProxy);
+        console.log(newProxy);
+        console.log(typeof newProxy);
+        console.log(Reflect.has(newProxy, "baseball")); // ??왜 false
     </script>
 </body>
 </html>

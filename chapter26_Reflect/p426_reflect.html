@@ -8,14 +8,7 @@
 </head>
 <body>
     <script type="text/javascript">
-        let newProxy = new Proxy({sports: "스포츠"}, {
-            has(target, key) {
-                return key in target ? true : false;
-            }
-        });
-        console.dir(newProxy);
-        console.log("sports" in newProxy);
-        console.log("music" in newProxy);
+        
     </script>
 </body>
 </html>

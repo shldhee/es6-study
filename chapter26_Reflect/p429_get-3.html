@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let sports = { soccer: "축구"};
+        let newProxy = new Proxy(sports, {
+            get(target, key, receiver) {
+                return target[key] + ",11명";
+            }
+        });
+        console.log(Reflect.get(newProxy, "soccer"));
+
+        /*
+            get() 첫번째 파라미터 newProxy 인스턴스 지정 get() 트랩 호출
+                  두번째 파라미터 "soccer" get() 트랩에 두번째 파라미터 설정
+        */
+
+        let sports = { soccer: "축구"};
+        let newProxy = new Proxy(sports, {
+            get(target, key, receiver) {
+                return Reflect.get(target, key) + ":11명";
+            }
+        });
+        console.log(Reflect.get(newProxy, "soccer"));
+
+        /*
+            메서드 호출 형태 차이
+            
+            target[key]
+            Reflect.get(target, key)
+
+            값을 구하는 형태만 다를뿐 반환되는 값은 같다.
+            필자는 Reflect.get()이 "오브젝트.메서드이름()" 형태이므로 권한다.
+        */
+    </script>
+</body>
+</html>

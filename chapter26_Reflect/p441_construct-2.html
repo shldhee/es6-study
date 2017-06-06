@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Sports {
+            constructor(ground) {
+                this.ground = ground;
+            }
+            getGround() {
+                return this.ground;
+            }
+        };
+        class Soccer {
+            getGround() {
+                return "Soccer.getGround() 사용";
+            }
+        };
+        let obj = Reflect.construct(Sports, ["상암구장"], Soccer);
+        console.log(obj.getGround());
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            target 오브젝트에 프로퍼티 추가 가능 여부를 반환합니다.
+            Object.isExtensible()과 기능이 같다.
+            단, 파라미터에 오브젝트를 지정하지 않을때의 처리가 다르다.
+            Object.seal(), Object.freeze(), Reflect.preventExtensions()를 실행한 오브젝트는 프로퍼티를 추가할수 없으므로 false 반환
+        */
+
+        let emptyObj = {};
+        Reflect.preventExtensions(emptyObj);
+        console.log(Reflect.isExtensible(emptyObj)); // 프로퍼티 추가 불가능이므로 false
+    </script>
+</body>
+</html>

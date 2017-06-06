@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            target 오브젝트의 __proto__에 prototype을 설정(첨부)
+            첫 번째 파라미터 : target, 대상 오브젝트
+            두 번째 파라미터 : prototype, 설정할 오브젝트의 prototype
+
+            두 번째 파라미터에 첫 번째 파라미터인 target 오브젝트의 __proto__에 설정(첨부)할 오브젝트를 지정
+            일반적으로 오브젝트의 prototype을 지정하지만 오브젝트를 지정할 수도 있다. (null도 가능)
+        */
+
+        let Sports = function(){};
+        console.dir(Sports);
+        Sports.prototype.getGround = function() {
+            return this.ground;
+        };
+        console.dir(Sports);
+
+        let groundObj = {ground: "상암구장"};
+
+        console.dir(groundObj);
+        Reflect.setPrototypeOf(groundObj, Sports.prototype);
+        console.dir(groundObj);
+        console.log(groundObj.getGround()); //console.dir 이름
+
+    </script>
+</body>
+</html>

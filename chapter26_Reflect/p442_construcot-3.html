@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Sports {
+            constructor(...values) {
+                this.values = values;
+            }
+            getValues() {
+                return this.values;
+            }
+        };
+        let newProxy = new Proxy(Sports, {
+            construct(target, params, proxy) {
+                return Reflect.construct(target, params);
+            }
+        });
+
+        //let obj = Reflect.construct(newProxy, ["축구", "상암구장"]);
+        // newProxy를 사용하는 이유? 트랩때문에? 중간에 수정할라고?...ㅠㅠ Proxy, Reflect 둘의 관계는..?
+
+        let obj = Reflect.construct(Sports, ["축구", "상암구장"]);
+        console.log(obj.getValues());
+
+
+    </script>
+</body>
+</html>

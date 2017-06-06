@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            definedProperty()
+            target 오브젝트에 프로퍼티를 추가하거나 프로퍼티 값을 변경
+            Object.definedProperty()는 성공적으로 처리하면 오브젝트반환, 실패시 Type-error
+            따라서 try catch 문 사용
+
+            반면, Reflect.definedProperty()는 성공적으로 처리하면 true, 실패시 false 반환(에러발생안됨)
+
+            ES5에서는 첫번째 파라미터에 ({}) 와 같이 오브젝트 리터럴을 사용했고 반환했다.
+            ES6에서는 true/false를 반환하므로 첫 번째 파라미터가 사전에 정의되어야 한다.
+
+            첫 번째 파라미터 : target, Object
+            두 번째 파라미터 : key, 추가/변경할 프로퍼티 키
+            세 번째 파라미터 : 추가/변경할 discriptor
+        */
+
+        let sportsObj = {
+            event: "축구"
+        };
+        let result = Reflect.defineProperty(sportsObj, "sports", {
+            get() {
+                return this.event;
+            }
+        }); // sports 프로퍼티 키를 추가해서 get() 설정
+        console.log(result);
+        console.log(sportsObj.sports); // getter 호출시 this.event 실행
+    </script>
+</body>
+</html>

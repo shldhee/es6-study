@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            target 오브젝트에 프로퍼티 추가 금지 설정
+            Object.preventExtensions()와 비슷하지만 처리 결과가 true/false 반환되는 점이 다르다.
+            추가 금지 상테어서 다시 추가 금지를 설정하면 false를 반환
+        */
+
+        let obj = {};
+        console.log(Reflect.preventExtensions(obj)); // true 추가 금지 설정 성공
+        console.log(Reflect.defineProperty(obj, "baseball", { value: "야구"})); // 추가 할 수 없으므로 false
+
+    </script>
+</body>
+</html>

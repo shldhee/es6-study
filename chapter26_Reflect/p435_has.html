@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // target 오브젝트에서 프로퍼티 키의 존재 여부를 반환
+        // Reflect.has()
+        // 첫 번째 파라미터 target object
+        // 두 번재 파라미터 key
+        // 존재하면 true, 아니면 false 반환
+        // target오브젝트의 prototype까지 검색
+
+        let nameObj = {name: "이름"};
+        console.log(Reflect.has(nameObj, "name")); // true
+
+        function sports() {};
+        console.log(Reflect.has(sports, "hasOwnProperty")); // true
+        /*
+            sports.prototype의 __proto__에 "hasOwnProperty"가 연결되어 있다.
+        */
+    </script>
+</body>
+</html>

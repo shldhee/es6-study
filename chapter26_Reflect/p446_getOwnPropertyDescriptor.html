@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            target 오브젝트에서 프로퍼티의 디스크립터를 반환합니다.
+            프로퍼티에 디스크립트러르 작성하지 않았으면 디폴트 값이 반환
+        */
+
+        let sportsObj = {sports:"스포츠"};
+        let result = Reflect.getOwnPropertyDescriptor(sportsObj,"sports");
+        console.log(result);
+
+    </script>
+</body>
+</html>

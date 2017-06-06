@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            인스턴스를 생성하여 반환합니다.
+            Refelct.construct()
+            첫 번째 파라미터 constructor를 지정, 클래스에 constructor가 작성되어 있으면 클래스를 지정해도 됨
+            두 번째 파라미터(선택) 첫 번째 파라미터 함수를 호출하면서 넘겨 줄 파라미터 값을 Array 또는 Array-like로 작성
+            세 번째 파라미터(선택) 첫 번쨰의 constructor 대신 사용하려는 constructor를 지정 마찬가지 클래스에 constructor가 있으면 클래스로 작성해도 됨
+        */
+
+        class Sports {
+            constructor(ground) {
+                this.ground = ground;
+            }
+        };
+        let obj = Reflect.construct(Sports, ["상암구장"]);
+        console.log(obj.ground);
+    </script>
+</body>
+</html>

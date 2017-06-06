@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            deleteProperty():프로퍼티 삭제
+            target 오브젝트에서 프로퍼티를 삭제합니다.
+
+            첫 번째 파라미터 object : target 대상 오브젝트
+            두 번째 파라미터 String : key 삭제할 프로퍼티 키
+
+            delete연사자와 기능은 같지만 반환 값이 다르다.
+            삭제에 성공하면 true, 실패하면 false
+            오브젝트에 프로퍼티가 존재하지 않아도 true 반환
+        */
+
+        let obj = {member: 11, ground: "상암"};
+        console.log(Reflect.deleteProperty(obj, "ground"));
+        console.log(Reflect.deleteProperty(obj, "ground"));
+
+        Object.freeze(obj); // 객체 동결, 읽기 전용으로 만든다. 해제 할 수 없다. Object.isFrozen(); 으로 확인가능
+        console.log(Reflect.deleteProperty(obj, "member"));
+    </script>
+</body>
+</html>

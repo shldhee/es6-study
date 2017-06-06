@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function getValue(...values) {
+            return this.base + values.reduce(function(pre, cur) {
+                return pre + cur;
+            });
+        };
+        let newProxy = new Proxy(getValue, {
+            apply(target, thisObj, params) {
+                return Reflect.apply(target, thisObj, params);
+            }
+        });
+        console.log(Reflect.apply(newProxy, {base: 100}, [10, 20, 30]));
+    </script>
+</body>
+</html>
