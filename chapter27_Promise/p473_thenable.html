@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            let obj = {then(resolve, reject)}와 같이 오브젝트 안에 then()을 작성한 형태를 thenable 이라고 한다.
+        */
+        let oneObj = Promise.resolve({ // Promise.resolve()의 파라미터에 Object 오브젝트를 작성, 그 안에 then()을 작성 따라서 thenable
+            then(resolve) {
+                console.log("1: then"); // 여기까지 [[PromiseStatus]]값은 pending
+                resolve("thenable"); // 여기부터 resolved
+            }
+        });
+        oneObj.then((value) => console.log("2:", value));
+
+        /*
+            oneObj.then().then() 형태로 된다.
+            1. oneObj인스턴스 then(resolve) 실행
+            2. console.log("1: then");
+            3. resolve("thenable") 호출 이때 [[PromiseValue]] "thenable" 설정
+            4. 2번째 then() 호출 이때 value 파라미터는 [[PromiseValue]] "thenable" 값으로 설정
+            5. console.log("2:", value));
+
+            result
+            1: then
+            2: thenable
+        */
+    </script>
+
+</body>
+</html>

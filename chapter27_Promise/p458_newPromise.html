@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            new Promise(function(resolve, reject) { })
+            executer에 2개의 파라미터 작성 가능
+            첫 번째 파라미터에 executer 블록에서 처리를 성공했을 때 호출 할 핸들러 이름(resolve)을 작성
+            두 번째 파라미터에 실패했을 때 호출할 핸들러 이름(reject)을 작성
+            resolve, reject 임의의 이름 지정 가능
+
+            executer 블록의 핸들러 함수를 작성하지 않으면, then()의 파라미터에 작성한 함수가 실행되지 않는다.
+            핸들러 함수 이름과 executer 파라미터의 이름이 같아야 한다.
+        */
+
+        function create(param) {
+            return new Promise(function(resolve, reject) {
+                if (param === "ok") {
+                    resolve(param);
+                    console.log("1: resolove");
+                } else {
+                    reject(param);
+                }
+            });
+        };
+
+        create("ok").then(function(param) {
+            console.log("3: 성공,", param);
+        }, function(param) {
+            console.log("3: 실패,", param);
+        });
+
+        console.log("2: 끝");
+
+        /*
+            1. create() 호출 param 값이 ok 이므로 resolove() 함수 호출(지금 하지 않고 소스 끝까지 실행 후 다시 와서 연결된 함수(then()의 첫번째 함수) 실행)
+            2. create() 호출 완료되면 Promise 인스턴스 반환 "인스턴스.then()"가 되어 then() 실행가능하지만 지금 실행하지 않는다. then() 첫번째 파라미터는 resolve에 바인딩, 2번째는 reject에 바인딩
+            3. "2: 끝" 콘솔로그 출력
+            4. executer 블록에서 resolove(param) 호출하면 then()의 첫 번째 파라미터 함수 호출 "3: 성공", "ok"
+
+        */
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        create("ok") 대신 "fail"을 파라미터로 넘겨줄때
+        reject(param)이 실행되어 연결된 then()함수의 2번째 파라미터에 작성한 함수 실행
+        console.log("3: 실패,", param);
+    */,
+        function create(param) {
+            return new Promise(function(resolve, reject) {
+                if (param === "ok") {
+                    resolve(param);
+                } else {
+                    reject(param);
+                    console.log("1: resolove");
+                }
+            });
+        };
+
+        create("fail").then(function(param) {
+            console.log("3: 성공,", param);
+        }, function(param) {
+            console.log("3: 실패,", param);
+        });
+
+        console.log("2: 끝");
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            자바스크립트 기본적으로 동기로 실행
+            Promise는 비동기와 비슷(클라이언트에서 서버가 응답했을 때의 처리를 사전에 정의해 두면, 서버가 응답할때 자동으로 처리)
+            Promise 오브젝트는 DOM에서 처음 제시
+            현재는 javascript 스펙에 포함 따라서 DOM에서도 사용 가능하다.
+        */
+
+        function create() {
+            return new Promise(function(resolve, reject){
+                resolve();
+                console.log("1: resolve");
+            });
+        };
+
+        create().then(function(){
+            console.log("3: 성공");
+        }, function() {
+            console.log("3: 실패");
+        });
+        console.log("2: 끝");
+
+        /*
+            1. create() 함수 호출 new Promise() 인스턴스 생성 Promise 파라미터 function(){} 실행(executer 실행자) resolve() 호출 정의된게 없다 나중에 설명 "1: reslove" 출력
+            2. create() 실행이 끝나면 Promise 인스턴스(then()존재) 반환 하지만 then()을 호출하지 안흔않는다.
+
+            ** resolve()를 호출할 수 있는 환경이 되었을 때 호출하는 것
+                then()을 실행하지 않고 아래 코드로 이동하는 것이
+                Promise 비동기 처리의 핵심 매커니즘
+
+            "2: 끝" 출력
+
+            3. 소스 끝까지 처리 후 "3: 성공" 출력 (첫 번째 파라미터 function이 실행된 이유는 나중에 설명)
+
+
+
+    </script>
+</body>
+</html>

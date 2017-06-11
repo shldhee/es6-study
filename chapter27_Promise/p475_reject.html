@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            실패(reject) 상태의 Promise 인스턴스를 반환
+        */
+        let promiseObj = Promise.reject("reject 처리");
+        promiseObj.then(
+            (param) => console.log(param),
+            (param) => console.log("에러", param));
+
+        /*
+            Promise.reject() 실행하면 reject상태의 Promise 인스턴스를 생성하여 반환
+            파라미터 값이 [[PromiseValue]]에 설정
+                        then()의 두 번째 파라미터 함수의 파라미터 값을 설정
+
+            reject 호출하므로 then()의 두 번째 함수 실행            
+        */
+    </script>
+</body>
+</html>

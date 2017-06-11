@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let oneObj = Promise.resolve({ sports: "스포츠" }); // Promise 인스턴스를 생성 후 반환 이떄 resolve()의 파라미터 값이 [[PromiseValue]]에 설정
+        console.dir(oneObj);
+        Promise.resolve(oneObj).then((param) => { // oneObj의 [[PromiseValue]]값이 then() 핸들러 함수의 param 파라미터에 설정
+            console.log(param);
+        });
+
+        /*
+            Promise.resolve() 파라미터에 Promise.resolve()로 생성한 인스턴스를 지정한 형태
+
+        */
+    </script>
+</body>
+</html>

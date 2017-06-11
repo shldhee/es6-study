@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            성공과 실패 핸들러를 정의
+            Promise.prototype.then(onFullfilled, onRejected)
+            첫 번째 파라미터 Promise가 성공 상태가 되었을때 실행될 핸들러 함수 작성
+            두 번째 파라미터 Promise가 실패 상태가 되었을때 실행될 핸들러 함수 작성
+            반환 Promise 인스턴스
+
+            성공, 실패 핸들러 함수에 파라미터를 하나만 작성 할 수 있다.
+            executer 블록의 resolve(), reject()에 여러개 파라미터 값을 넘겨줘도 핸들러 함수에선 첫 번째 파라미터만 받는다.
+            여러개 파라미터 값을 넘겨줄때는 배열 형태로 작성
+
+            또 return 문 작성 여부와 상관없이 현재 실행중인 Promise 인스턴스 반환
+            return 문을 작성하면 return 문의 표현식을 평가하고 그 결과값을 [[PromiseValue]]에 설정
+            작성하지 않으면 undefined 설정
+        */
+
+        function create() {
+            return new Promise((resolve) => resolve(100));
+        };
+        create().then(() => console.log("1:then"));
+
+        create().then((param) => {
+            console.log("2:then, ", param);
+            return param + 50;
+        });
+
+        create().then((param) => {
+            console.log("3:then,", param);
+            return param + 70;
+        }).then((param) => console.log("4:then,", param));
+
+        /*
+            처음부터 끝까지 실행 후, executer 블록의 resolve()가 호출
+            then().then()과 같이 then()이 연결되어 있으면, 처음 then()의 핸들러 함수를 실행한 후,
+            두 번째 then()의 함수 코드를 실행. 이때 처음 then()의 return 값이 두 번째 then() 함수의 파라미터로 값으로 설정
+        */
+
+    </script>
+</body>
+</html>

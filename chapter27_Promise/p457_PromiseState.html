@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            Promise는 코드를 실행할 때마다 진행 상태를 [[PromiseState]]에 저장
+            이유는 연속해서 코드를 실행하지 않고, 소스 코드 끝까지 내려갔다가 다시 올라서 실행하므로
+
+            상태는 pending, settled 2개로 나뉜다.(상태이면서 발생 단계)
+            settled는 다시 성공(fulfull), 실패(reject)로 나눈다.
+
+            pending상태였다가 settled 상태로 넘어간다.
+        */
+
+        // pending 상태
+        function create() {
+            return new Promise(function(resolve, reject){
+                resolve();
+                console.log("1: resolve");
+            });
+        };
+
+        /*
+            new Promise() 인스턴스 생성
+            executer 실행하여 성공과 실패에 따라 호출할 핸들러 함수를 바인딩
+            바인딩이란 resolve()와 같이 바로 함수를 호출하지 않고 나중에 호출하므로, 그때를 위한 호출 환경을 설정하는 것
+            executer 블록의 코드를 실행하지 않고 소스 코드 끝까지 실행
+            Promise 처리의 성공 실패를 알 수 없다.
+            따라서 성공 또는 실패가 발생했을 때, 이에 따라 함수가 호출되게 환경 설정
+        */
+
+        // settled 상태
+
+        create().then(function(){
+            console.log("3: 성공");
+        }, function() {
+            console.log("3: 실패");
+        });
+
+        /*
+            pending 상태 종료 후 settled 상태로 변환
+            executer 블록의 코드가
+            fulfull(성공 시) 첫 번째 파라미터 핸들러 실행
+            reject(실패 시) 두 번째 파라미터 핸들러 실행
+        */
+
+
+    </script>
+</body>
+</html>

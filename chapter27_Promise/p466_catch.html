@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            실패(reject) 핸들러를 정의
+            Promise.prototype.catch(onRejected)
+            파라미터 Function 타입 onRejected, 실패 처리 핸들러
+            반환 Promise Promise 인스턴스
+
+            파라미터에 Promise가 reject 상태가 되었을 때 실행될 핸들러 함수를 작성
+            then() 첫 번째 파라미터에 함수를 작성, 두 번째 파라미터는 작성하지 않는다.
+            대신 then().catch()형태로 작성해 then() 두 번째 파라미터에 작성할 함수를 catch()의 파라미터에 작성
+
+            나머지는 then()과 같다.
+            첫 번째 파라미터 값만 받고 다수일 경우 배열 형태로
+            return 문 작성하면 값 설정 아니면 undefined
+            catch().then() 리턴값을 then()파라미터 값으로 전달
+        */
+
+        function create(param) {
+            return new Promise((resolve, reject) => {
+                param === "ok" ? resolve(param) : reject(param);
+            });
+        };
+
+        create("fail").then((param) => {
+            console.log("성공:", param);
+        }).catch((param) => {
+            console.log("실패:", param);
+        });
+
+        /*
+            create("fail") 호출 reject(param) 호출
+            따라서 catch()의 핸들러 함수 실행
+            Promise인스턴스 생성
+            reject(param)에서 param 값이 핸들러 함수의 파라미터인 param에 설정
+        */
+    </script>
+</body>
+</html>
