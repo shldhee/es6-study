@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            처음 한 번만 then()의 핸들러 함수를 실행
+            형태 Promise.race()
+            파라미터 iterable 오브젝트
+            반환 없음
+
+            파라미터에 이터러블 오브젝트 작성
+            이터러블 오브젝트에 작성한 순서로 Promise 인스턴스를 생성
+            처음 한번만 Promise 인스턴스의 성공과 실패에 따라 then()의 핸들러 함수 호출하고 그 다음부터 실행하지 않는다.
+        */
+
+        function order(mili) {
+            return new Promise((resolve, rejet) => {
+                setTimeout(() => {
+                    console.log(mili);
+                    resolve(mili);
+                }, mili);
+            });
+        };
+        Promise.race([order(300), order(200), order(100)])
+            .then((milis) => console.log("then:", milis),
+            (error) => console.log(error));
+    </script>
+
+</body>
+</html>

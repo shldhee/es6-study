@@ -16,6 +16,34 @@
             생성한 모든 Promise가 성공 상태이면 then() 첫번째 함수 실행
             하나라도 실패하면 then() 핸들러 함수를 실행하지 않는다.
         */
+
+        function order(mili) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log("실행", mili);
+                    resolve(mili);
+                }, mili);
+            });
+        };
+
+        Promise.all([order(300), order(200), order(100)])
+        .then((milis) => console.log("호출", milis));
+
+        /*
+            order() 함수 호출 시 파라미터로 받은 mili값을 setTimeout()의 지연 시간으로 사용
+            order(300),order(200),order(100) 함수 실행이 0.1초 안에 모두 이루어진다.
+            300,200,100 순서로 호출되지만 지연시간이 짧은 순서로 실행된다.
+            (100,200,300 순서로)
+
+            Promise.all() 파라미터에서 order() 호출로 생성한 Promise 인스턴스가 모두 성공적으로 처리되었을 때 then() 핸들러 함수 한번만 호출한다.
+
+            then() 핸들러 함수의 파라미터는 Promise.all()에서 order()를 호출한 순서로 파라미터 값을 배열로 넘겨줍니다.
+
+            실행 100
+            실행 200
+            실행 300
+            호출 (3) [300, 200, 100]
+        */
     </script>
 </body>
 </html>
