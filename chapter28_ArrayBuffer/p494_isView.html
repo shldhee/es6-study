@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let bufferObj = new ArrayBuffer(10);
+        console.log(ArrayBuffer.isView(bufferObj));
+
+        let typedObj = new Int16Array();
+        console.log(ArrayBuffer.isView(typedObj));
+
+        let viewObj = new DataView(bufferObj);
+        console.log(ArrayBuffer.isView(viewObj));
+    </script>
+</body>
+</html>
